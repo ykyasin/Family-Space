@@ -1,7 +1,14 @@
 #!/bin/bash
-cd /opt/Family-Space
-sudo python3 -m venv venv
+sudo apt update
+sudo apt-get install python3-venv -y
+
+python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
-python3 create.py
-python3 app.py 
+
+sudo mkdir /opt/Family-Space
+sudo chown -R jenkins /opt/Family-Space
+
+sudo system daemon-reload
+sudo systemctl stop family-space.service
+sudo systemctl start family-space.service
