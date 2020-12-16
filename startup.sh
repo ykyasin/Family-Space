@@ -6,9 +6,5 @@ python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
 
-sudo mkdir /opt/Family-Space
-sudo chown -R jenkins /opt/Family-Space
-
 sudo systemctl daemon-reload
-sudo systemctl stop family-space.service
 sudo systemctl start family-space.service
