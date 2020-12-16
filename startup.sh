@@ -17,4 +17,4 @@ pip3 install -r requirements.txt
 
 
 sudo systemctl daemon-reload
-sudo systemctl start family-space.service
+sudo systemctl start app.service
