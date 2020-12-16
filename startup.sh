@@ -1,12 +1,12 @@
 #!/bin/bash 
 sudo apt update
 sudo apt-get install python3-venv
-ls
+
 
 cd ..
-sudo cp -r fs-app /opt/jenkins
-sudo chown -R jenkins /opt/jenkins
-cd /opt/jenkins/fs-app
+sudo cp -r fs-app /opt/
+sudo chown -R jenkins /opt/fs-app
+cd /opt/fs-app
 python3 -m venv venv
 source venv/bin/activate
 
