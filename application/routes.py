@@ -4,7 +4,7 @@ from flask import render_template
 
 @app.route('/')
 def home():
-    test = ['it','works','!!!!']
+    test = ['it','works', 'times 2', '!!!!']
     return render_template('index.html', test = test)
 
 @app.route('/add')
