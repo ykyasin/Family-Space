@@ -9,6 +9,7 @@ echo "my breaak <------------------------------------------->"
 
 cd ..
 sudo cp -r fs-app /opt/jenkins
+sudo chown -R jenkins /opt/jenkins
 cd /opt/jenkins/fs-app
 python3 -m venv venv
 ls
