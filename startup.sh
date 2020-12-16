@@ -13,7 +13,7 @@ python3 -m venv venv
 source /opt/jenkins/venv/bin/activate
 
 pip3 install -r fs-app/requirements.txt 
-
+pip3 list
 
 sudo systemctl daemon-reload
 sudo systemctl stop app.service
