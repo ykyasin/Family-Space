@@ -1,12 +1,14 @@
 #!/bin/bash
-sudo apt update
+sudo apt-get update
+sudo apt-get install python3
 sudo apt-get install python3-venv -y
+cd $WORKSPACE 
+ls -lh 
+# python3 -m venv venv
+# source venv/bin/activate
+# pip3 install -r requirements.txt
 
-python3 -m venv venv
-source venv/bin/activate
-pip3 install -r requirements.txt
+# sudo cp family-space.service /etc/systemd/system/family-space.service
 
-sudo cp family-space.service /etc/systemd/system/family-space.service
-
-sudo systemctl daemon-reload
-sudo systemctl start family-space.service
+# sudo systemctl daemon-reload
+# sudo systemctl start family-space.service
