@@ -12,7 +12,7 @@ source venv/bin/activate
 
 
 pip3 install -r requirements.txt
-pip3 list
+python3 app.py 
 
  
 sudo systemctl daemon-reload
