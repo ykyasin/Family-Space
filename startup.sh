@@ -8,11 +8,11 @@ ls -lh
 sudo cp -r $WORKSPACE /opt/jenkins
 sudo chown -R jenkins /opt/jenkins
 cd ~ 
-cd /opt/jenkins
+cd /opt/jenkins/fs-app
 python3 -m venv venv
-source /opt/jenkins/venv/bin/activate
+source /opt/jenkins/fs-app/venv/bin/activate
 
-pip3 install -r fs-app/requirements.txt 
+pip3 install -r requirements.txt 
 pip3 list
 
 sudo systemctl daemon-reload
