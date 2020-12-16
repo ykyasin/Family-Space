@@ -10,7 +10,7 @@ sudo chown -R jenkins /opt/jenkins
 cd ~ 
 cd /opt/jenkins/fs-app
 python3 -m venv venv
-source /opt/jenkins/fs-app/venv/bin/activate
+source venv/bin/activate
 
 pip3 install -r requirements.txt 
 pip3 list
