@@ -19,12 +19,12 @@ ls
 #sudo chown -R jenkins /opt/jenkins
 #python3 -m venv venv
 #source venv/bin/activate
-#pip3 install -r requirements.txt
+pip3 install -r requirements.txt
 
 
  
 #sudo chown -R jenkins /opt/jenkins
 
-#sudo systemctl daemon-reload
-#sudo systemctl stop app.service
-#sudo systemctl start app.service
+sudo systemctl daemon-reload
+sudo systemctl stop app.service
+sudo systemctl start app.service
