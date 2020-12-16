@@ -1,7 +1,15 @@
 #!/bin/bash 
 sudo apt update
 sudo apt-get install python3-venv
-cd ..
+ls
+
+echo "my breaak <------------------------------------------->"
+echo "my breaak <------------------------------------------->"
+echo "my breaak <------------------------------------------->"
+
+sudo cp -r fs-app /opt/jenkins
+cd /opt/jenkins/fs-app
+python3 -m venv venv
 ls
 #cd $WORKSPACE
 #ls -lah
