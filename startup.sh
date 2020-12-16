@@ -6,5 +6,7 @@ python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
 
+sudo cp family-space.service /etc/systemd/system/family-space.service
+
 sudo systemctl daemon-reload
 sudo systemctl start family-space.service
