@@ -13,7 +13,10 @@ source venv/bin/activate
 
 pip3 install -r requirements.txt
 
- 
+echo "first"
+ls
 sudo systemctl daemon-reload
 sudo systemctl stop app.service
+echo "second"
+ls
 sudo systemctl start app.service
