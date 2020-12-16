@@ -10,13 +10,9 @@ cd /opt/fs-app
 python3 -m venv venv
 source venv/bin/activate
 
-
 pip3 install -r requirements.txt
+python3 app.py
 
-echo "first"
-ls
 sudo systemctl daemon-reload
 sudo systemctl stop app.service
-echo "second"
-ls
 sudo systemctl start app.service
