@@ -1,6 +1,7 @@
 #!/bin/bash 
 sudo apt update
 sudo apt-get install python3-venv
+cd ..
 ls
 #cd $WORKSPACE
 #ls -lah
