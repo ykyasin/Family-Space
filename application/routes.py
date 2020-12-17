@@ -8,7 +8,7 @@ def home():
 
 @app.route('/<int:id>')
 def check(id):
-    user = User.query.get(1)
+    user = User.query.get(id)
     return f'user: {user.name}'
 
 @app.route('/add/<name>')
