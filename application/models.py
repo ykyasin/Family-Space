@@ -4,6 +4,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(30))
     surname = db.Column(db.String(30))
+    email = db.Column(db.String(30))
     posts = db.relationship('Post', backref = 'user')
 
 class Post(db.Model):
