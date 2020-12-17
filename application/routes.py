@@ -8,7 +8,7 @@ def home():
 
 @app.route('/<int:id>')
 def check(id):
-    user = User.query.filter_by(id).first()
+    user = User.query.filter_by(id=id).first()
     return f'user: {user.name}'
 
 @app.route('/<name>')
