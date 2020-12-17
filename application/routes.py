@@ -12,7 +12,7 @@ def check(id):
     return f'user: {user.name}'
 
 @app.route('/<name>')
-def add():
+def add(name):
     user = User(name=name)
     db.session.add(user)
     db.session.commit()
