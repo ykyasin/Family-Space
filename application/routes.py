@@ -6,12 +6,12 @@ from flask import render_template
 def home():
     return 'nothing to see'
 
-@app.route('/name')
-def check(name):
-    user = User.query.filter_by(name=name).first()
-    return f'user: {user.location}'
-
 @app.route('/<name>')
+def check(id):
+    user = User.query.filter_by(id=id).first()
+    return f'user: {user.name}'
+
+@app.route('/add/<name>')
 def add(name):
     user = User(name=name)
     db.session.add(user)
