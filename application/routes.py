@@ -6,7 +6,7 @@ from flask import render_template
 def home():
     return 'nothing to see'
 
-@app.route('/<name>')
+@app.route('/<int:id>')
 def check(id):
     user = User.query.filter_by(id=id).first()
     return f'user: {user.name}'
