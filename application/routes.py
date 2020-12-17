@@ -1,24 +1,22 @@
 from application import app, db
-from application.models import User, Post
+from application.models import User
 from flask import render_template
 
 @app.route('/')
 def home():
-    test = ['it','works', 'times 10', '!!!', 'one more']
-    return render_template('index.html', test = test)
+    return 'nothing to see'
 
-@app.route('/add')
+@app.route('/<int:id>')
+def check(id):
+    user = User.query.filter_by(id).first()
+    return f'user: {user.name}'
+
+@app.route('/<name>')
 def add():
-    new_post = Post(detail="First app post")
-    db.session.add(new_post)
+    user = User(name=name)
+    db.session.add(user)
     db.session.commit()
-    return "new post"
+    return "new user added"
 
-@app.route('/read')
-def read():
-    all_posts = Post.query.all()
-    post_string = ""
-    for post in all_posts:
-        post_string += "<br>" + post.detail 
-    return post_string
+
 
