@@ -16,7 +16,7 @@ def add(name):
     user = User(name=name)
     db.session.add(user)
     db.session.commit()
-    return f'New User added: {user.name}'
+    return f'New User added: {user.name}' 
 
 
 
