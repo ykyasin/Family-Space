@@ -9,7 +9,7 @@ def home():
 @app.route('/read')
 def check():
     user = User.query.order_by(User.id).all()
-    return str(user[1].name)
+    return str(user[1].name) + " " + str(len(user))
 
 @app.route('/add/<name>')
 def add(name):
