@@ -6,17 +6,17 @@ from flask import render_template
 def home():
     return 'nothing to see'
 
-@app.route('/<int:id>')
-def check(id):
-    user = User.query.get(id)
-    return f'user: {user.name}'
+@app.route('/read')
+def check():
+    user = User.query.order_by(User.name).all()
+    return str(user)
 
 @app.route('/add/<name>')
 def add(name):
     user = User(name=name)
     db.session.add(user)
     db.session.commit()
-    return "new user added"
+    return f'New User added: {user.name}'
 
 
 
