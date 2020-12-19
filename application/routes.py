@@ -1,7 +1,7 @@
 from application import app, db
 from application.models import User
+from application.forms import UserForm
 from flask import Flask, render_template, request
-from application import UserForm
 
 @app.route('/')
 def home():
