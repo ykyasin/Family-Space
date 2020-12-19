@@ -31,7 +31,7 @@ def userform():
         user = User(name=name)
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('read'))
+        return redirect(url_for('check'))
     
     return render_template('name.html', userform = userform)
 
