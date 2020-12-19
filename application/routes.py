@@ -1,6 +1,7 @@
 from application import app, db
 from application.models import User
-from flask import render_template
+from flask import Flask, render_template, request
+from application import UserForm
 
 @app.route('/')
 def home():
@@ -22,5 +23,16 @@ def add(name):
     db.session.commit()
     return f'New User added: {user.name}' 
 
+@app.route('/user', methods = ['GET','POST'])
+def userform():
+    userform = UserForm()
+    if request == 'POST':
+        name = userform.name.data
+        user = User(name=name)
+        db.session.add(user)
+        db.session.commit()
+        return "Added"
+    
+    return render_template('name.html', userform = userform)
 
 
