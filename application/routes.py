@@ -1,7 +1,7 @@
 from application import app, db
 from application.models import User
 from application.forms import UserForm
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 @app.route('/')
 def home():
@@ -31,7 +31,7 @@ def userform():
         user = User(name=name)
         db.session.add(user)
         db.session.commit()
-        return "Added"
+        return redirect(url_for('read'))
     
     return render_template('name.html', userform = userform)
 
