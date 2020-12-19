@@ -26,7 +26,7 @@ def add(name):
 @app.route('/user', methods = ['GET','POST'])
 def userform():
     userform = UserForm()
-    if request == 'POST':
+    if request.method == 'POST':
         name = userform.name.data
         user = User(name=name)
         db.session.add(user)
