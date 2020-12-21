@@ -3,7 +3,7 @@ from application.models import User, Post
 from application.forms import UserForm, PostForm
 from flask import Flask, render_template, request, redirect, url_for
 
-@app.route('/')
+@app.route('/', methods = ['GET','POST'])
 def home():
     postform = PostForm()
     if request.method == 'POST':
