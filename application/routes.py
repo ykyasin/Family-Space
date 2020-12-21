@@ -9,7 +9,7 @@ def home():
     if request.method == 'POST':
         post = userform.name.data
         user = Post(post=post)
-        db.session.add(pos t)
+        db.session.add(post)
         db.session.commit()
         return redirect(url_for('check'))
     post_db = Post.query.order_by(Post.id).all()
