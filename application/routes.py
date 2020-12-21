@@ -1,16 +1,27 @@
 from application import app, db
-from application.models import User
-from application.forms import UserForm
+from application.models import User, Post
+from application.forms import UserForm, PostForm
 from flask import Flask, render_template, request, redirect, url_for
 
 @app.route('/')
 def home():
-    return 'nothing to see'
+    postform = PostForm()
+    if request.method == 'POST':
+        post = userform.name.data
+        user = Post(post=post)
+        db.session.add(pos  t)
+        db.session.commit()
+        return redirect(url_for('check'))
+    post_db = Post.query.order_by(Post.id).all()
+    posts = []
+    for i in range(len(post_db)):
+        posts.append(post_db[i].detail)
+    return render_template('index.html', postform = postform, posts=posts)
 
 @app.route('/read')
 def check():
     user = User.query.order_by(User.id).all()
-    names = []
+    users = []
     for i in range(len(user)):
         names.append(user[i].name)
 

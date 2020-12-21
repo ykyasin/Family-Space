@@ -3,6 +3,15 @@
         
     </head>
     <body>
-        <h1>This is the home page x2/h1>
+        <form action="" method="POST">
+            {{userform.hidden_tag() }}
+            {{userform.name.label}} {{userform.name}}
+            <br>
+            {{userform.submit}}
+        </form>
+        <br>
+        {% for post in posts %}
+        <p>{{post}}</p>
+        {% endfor %}
     </body>
 </html>
