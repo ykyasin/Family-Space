@@ -8,8 +8,8 @@ def home():
     postform = PostForm()
     if request.method == 'POST':
         post = postform.detail.data
-        post = Post(post=post)
-        db.session.add(post)
+        postx = Post(post)
+        db.session.add(postx)
         db.session.commit()
         return redirect(url_for('home'))
     post_db = Post.query.order_by(Post.id).all()
