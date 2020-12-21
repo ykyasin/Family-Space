@@ -9,7 +9,9 @@ def  choice_user():
 class Login(FlaskForm):
     users = QuerySelectField(query_factory=choice_user, allow_blank=True, get_label='name')
 
-
+class UserForm(FlaskForm):
+    name = StringField('Input name')
+    submit = SubmitField('Add User')
 
 class PostForm(FlaskForm):
     detail = StringField('How you feeling? ')
