@@ -7,7 +7,7 @@ from flask import Flask, render_template, request, redirect, url_for
 def home():
     postform = PostForm()
     if request.method == 'POST':
-        post = userform.name.data
+        post = postform.name.data
         user = Post(post=post)
         db.session.add(post)
         db.session.commit()
