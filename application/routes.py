@@ -8,10 +8,10 @@ def home():
     postform = PostForm()
     if request.method == 'POST':
         post = postform.detail.data
-        postx = Post(post)
-        db.session.add(postx)
+        new_post = Post(post)
+        db.session.add(new_post)
         db.session.commit()
-        return redirect(url_for('home'))
+        return redirect(url_for('read'))
     post_db = Post.query.order_by(Post.id).all()
     posts = []
     for i in range(len(post_db)):
