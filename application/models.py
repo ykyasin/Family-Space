@@ -7,4 +7,4 @@ class User(db.Model):
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    detail = db.Column(db.String(30))
+    detail = db.Column(db.String(180))
