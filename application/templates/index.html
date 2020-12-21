@@ -4,10 +4,10 @@
     </head>
     <body>
         <form action="" method="POST">
-            {{userform.hidden_tag() }}
-            {{userform.name.label}} {{userform.name}}
+            {{postform.hidden_tag() }}
+            {{postform.detail.label}} {{postform.detail}}
             <br>
-            {{userform.submit}}
+            {{postform.submit}}
         </form>
         <br>
         {% for post in posts %}
