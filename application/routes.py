@@ -1,6 +1,6 @@
 from application import app, db
 from application.models import User, Post
-from application.forms import UserForm, PostForm
+from application.forms import UserForm, PostForm, Login
 from flask import Flask, render_template, request, redirect, url_for
 
 @app.route('/', methods = ['GET','POST'])
@@ -18,14 +18,10 @@ def home():
         posts.append(post_db[i].detail)
     return render_template('index.html', postform = postform, posts=posts)
 
-@app.route('/read')
-def check():
-    user = User.query.order_by(User.id).all()
-    users = []
-    for i in range(len(user)):
-        names.append(user[i].name)
-
-    return str(names)
+@app.route('/login')
+def login():
+    form = Login()
+    return render_template('login.html', form = form)
 
 @app.route('/add/<name>')
 def add(name):
