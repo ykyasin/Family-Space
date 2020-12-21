@@ -8,7 +8,7 @@ def home():
     postform = PostForm()
     if request.method == 'POST':
         post = postform.detail.data
-        new_post = Post(post=post)
+        new_post = Post(detail=post)
         db.session.add(new_post)
         db.session.commit()
         return redirect(url_for('read'))
