@@ -11,7 +11,7 @@ def home():
         user = Post(post=post)
         db.session.add(post)
         db.session.commit()
-        return redirect(url_for('check'))
+        return redirect(url_for('home'))
     post_db = Post.query.order_by(Post.id).all()
     posts = []
     for i in range(len(post_db)):
