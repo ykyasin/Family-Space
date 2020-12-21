@@ -18,7 +18,7 @@ def home():
         posts.append(post_db[i].detail)
     return render_template('index.html', postform = postform, posts=posts)
 
-@app.route('/login')
+@app.route('/login', methods = ['GET','POST'])
 def login():
     form = Login()
     return render_template('login.html', form = form)
