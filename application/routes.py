@@ -28,7 +28,7 @@ def login(): #Add users
     form = Login()
     if request.method == 'POST':
         user = form.users.data
-        return redirect(url_for('main', user=user))
+        return redirect(url_for('main'))
     return render_template('login.html', form = form)
 
 @app.route('/add/<name>')
