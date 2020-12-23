@@ -3,15 +3,20 @@ from application.models import User, Post
 from application.forms import UserForm, PostForm, Login
 from flask import Flask, render_template, request, redirect, url_for
 
-@app.route('/', methods = ['GET','POST'])
+@app.route('/')
+@app.route('/home')
 def home():
+    return redirect(url_for('login'))
+
+@app.route('/main', methods = ['GET','POST'])
+def main():
     postform = PostForm()
     if request.method == 'POST':
         post = postform.detail.data
         new_post = Post(detail=post)
         db.session.add(new_post)
         db.session.commit()
-        return redirect(url_for('home'))
+        return redirect(url_for('main'))
     post_db = Post.query.order_by(Post.id).all()
     posts = []
     for i in range(len(post_db)):
@@ -19,7 +24,7 @@ def home():
     return render_template('index.html', postform = postform, posts=posts)
 
 @app.route('/login', methods = ['GET','POST'])
-def login():
+def login(): #Add users
     form = Login()
     return render_template('login.html', form = form)
 
