@@ -26,6 +26,8 @@ def main():
 @app.route('/login', methods = ['GET','POST'])
 def login(): #Add users
     form = Login()
+    if request.method == 'POST':
+        return redirect(url_for('main'))
     return render_template('login.html', form = form)
 
 @app.route('/add/<name>')

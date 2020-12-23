@@ -8,6 +8,7 @@ def  choice_user():
 
 class Login(FlaskForm):
     users = QuerySelectField(query_factory=choice_user, allow_blank=True, get_label='name')
+    submit = SubmitField('Login')
 
 class UserForm(FlaskForm):
     name = StringField('Input name')
