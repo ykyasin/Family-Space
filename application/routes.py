@@ -29,7 +29,7 @@ def login(): #Add users
     if request.method == 'POST':
         user = form.users.data
         #return redirect(url_for('main', user=user))
-        return f'name: {user}'
+        return '<h1> name: {}</h1>'.format(form.users.data)
     return render_template('login.html', form = form)
 
 @app.route('/add/<name>')
