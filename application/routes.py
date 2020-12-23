@@ -9,7 +9,7 @@ def home():
     return redirect(url_for('login'))
 
 @app.route('/main', methods = ['GET','POST'])
-def main(user):
+def main(user = "No User"):
     postform = PostForm()
     if request.method == 'POST':
         post = postform.detail.data
