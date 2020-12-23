@@ -9,7 +9,7 @@ def home():
     return redirect(url_for('login'))
 
 @app.route('/main', methods = ['GET','POST'])
-def main():
+def main(user):
     postform = PostForm()
     if request.method == 'POST':
         post = postform.detail.data
@@ -21,13 +21,14 @@ def main():
     posts = []
     for i in range(len(post_db)):
         posts.append(post_db[i].detail)
-    return render_template('index.html', postform = postform, posts=posts)
+    return render_template('index.html', postform = postform, posts=posts, user=user)
 
 @app.route('/login', methods = ['GET','POST'])
 def login(): #Add users
     form = Login()
     if request.method == 'POST':
-        return redirect(url_for('main'))
+        user = form.users.data
+        return redirect(url_for('main', user))
     return render_template('login.html', form = form)
 
 @app.route('/add/<name>')
