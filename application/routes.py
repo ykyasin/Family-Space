@@ -8,7 +8,7 @@ from flask import Flask, render_template, request, redirect, url_for
 def home():
     return redirect(url_for('login'))
 
-@app.route('/main', methods = ['GET','POST'])
+@app.route('/main/<name>', methods = ['GET','POST'])
 def main(user = "No User"):
     postform = PostForm()
     if request.method == 'POST':
