@@ -23,8 +23,7 @@ def main(user = "No User"):
     users = []
     for i in range(len(post_db)):
         posts.append(post_db[i].detail)
-        userid = User.query.filter_by(id=post.db[i].user_id).first()
-        users.append(userid.name)
+        users.append(post_db[i].user.name)
     return render_template('index.html', postform = postform, posts=posts, user=user, users = users)
 
 @app.route('/login', methods = ['GET','POST'])
