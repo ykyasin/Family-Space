@@ -5,4 +5,12 @@
         {{form.users}} <br>
         {{form.submit}}
     </form>
+    <br>
+    <br>
+    <p>Add user: </p> <br>
+    <formuser action="" method="POST">
+        {{formuser.hidden_tag()}}
+        {{formuser.users}} <br>
+        {{formuser.submit}}<br>
+    </formuser>
 {% endblock body %}

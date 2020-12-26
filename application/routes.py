@@ -26,10 +26,17 @@ def main(user = "No User"):
 @app.route('/login', methods = ['GET','POST'])
 def login(): #Add users
     form = Login()
+    formuser= UserForm()
     if form.validate_on_submit():
         user = form.users.data
         return redirect(url_for('main', user=user.name))
-    return render_template('login.html', form = form)
+    elif formuser.validate_on_submit():
+        user = formuser.name.data
+        newuser = User(name=name)
+        db.session.add(newuser)
+        db.session.commit()
+        return redirect(url_for('login'))
+    return render_template('login.html', form = form, formuser = formuser)
 
 @app.route('/add/<name>')
 def add(name):
@@ -54,10 +61,9 @@ def userform():
 @app.route('/test', methods = ['GET','POST'])
 def test():
     form = Login()
+    formuser= UserForm()
     if form.validate_on_submit():
-        if form.adduser == True:
-            return redirect(url_for('userform'))
         else:
             user = form.users.data
             return redirect(url_for('main', user=user.name))
-    return render_template('user.html', form = form)
+    return render_template('user.html', form = form, formuser = formuser)
