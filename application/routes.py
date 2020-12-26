@@ -33,7 +33,7 @@ def login(): #Add users
             return redirect(url_for('main', user=user.name))
         elif formuser.validate_on_submit():
             user = formuser.name.data
-            newuser = User(name=name)
+            newuser = User(name=user)
             db.session.add(newuser)
             db.session.commit()
             return redirect(url_for('login'))
