@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoLayout</title>
-</head>
-<body>
-    {% extends 'layout.html' %}
-    {% block body %}
-    <form action="" method="POST">
-        {{form.hidden_tag()}}
-        {{form.users}} <br>
-        {{form.submit}}
-    </form>
-    {% endblock body %}
-</body>
-</html>
+
+{% extends 'layout.html' %}
+{% block body %}
+<form action="" method="POST">
+    {{form.hidden_tag()}}
+    {{form.users}} <br>
+    {{form.submit}}
+</form>
+{% endblock body %}
