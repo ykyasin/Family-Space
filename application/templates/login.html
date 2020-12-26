@@ -10,7 +10,7 @@
     <p>Add user: </p> <br>
     <formuser action="" method="POST">
         {{formuser.hidden_tag()}}
-        {{formuser.users}} <br>
+        {{formuser.users.label}} {{formuser.users}}  <br>
         {{formuser.submit}}<br>
     </formuser>
 {% endblock body %}
