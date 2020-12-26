@@ -17,3 +17,6 @@ class UserForm(FlaskForm):
 class PostForm(FlaskForm):
     detail = StringField('How you feeling? ')
     submit = SubmitField('Post')
+
+class AddUser(FlaskForm):
+    submit = SubmitField("Add User")
