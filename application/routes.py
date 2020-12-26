@@ -13,7 +13,7 @@ def main(user = "No User"):
     postform = PostForm()
     if request.method == 'POST':
         post = postform.detail.data
-        new_post = Post(detail=post)
+        new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
         db.session.add(new_post)
         db.session.commit()
         return redirect(url_for('main'))
