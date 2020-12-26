@@ -58,12 +58,3 @@ def userform():
     return render_template('name.html', userform = userform)
 
 
-@app.route('/test', methods = ['GET','POST'])
-def test():
-    form = Login()
-    formuser= UserForm()
-    if form.validate_on_submit():
-        else:
-            user = form.users.data
-            return redirect(url_for('main', user=user.name))
-    return render_template('user.html', form = form, formuser = formuser)
