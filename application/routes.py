@@ -28,15 +28,16 @@ def login(): #Add users
     form = Login()
     formuser= UserForm()
     if request.method == 'POST':
-        if form.validate_on_submit():
-            user = form.users.data
-            return redirect(url_for('main', user=user.name))
-        elif formuser.validate_on_submit():
+        if formuser.name.data:
             name = formuser.name.data
             newuser = User(name=name)
             db.session.add(newuser)
             db.session.commit()
             return redirect(url_for('login'))
+        else:
+            user = form.users.data
+            return redirect(url_for('main', user=user.name))
+
     return render_template('login.html', form = form, formuser = formuser)
 
 @app.route('/add/<name>')
