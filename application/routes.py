@@ -16,7 +16,7 @@ def main(user = "No User"):
         new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
         db.session.add(new_post)
         db.session.commit()
-        return redirect(url_for('main'))
+        return redirect(url_for('main', user))
     post_db = Post.query.order_by(Post.id).all()
     posts = []
     users = []
