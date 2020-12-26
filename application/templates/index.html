@@ -8,7 +8,7 @@
             {{postform.submit}}
         </form>
     <br>
-    {% for post in range(len(posts)) %}
-        <p> {{user[post]}} says: {{post}}</p>
+    {% for post, user in posts, users %}
+        <p> {{user}} says: {{post}}</p>
     {% endfor %}
 {% endblock body %}
