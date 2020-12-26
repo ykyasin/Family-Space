@@ -3,16 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoLayout</title>
+    <title>With layout</title>
 </head>
 <body>
-    {% extends 'layout.html' %}
+    <h1>Hello</h1>
     {% block body %}
-    <form action="" method="POST">
-        {{form.hidden_tag()}}
-        {{form.users}} <br>
-        {{form.submit}}
-    </form>
     {% endblock body %}
 </body>
 </html>
