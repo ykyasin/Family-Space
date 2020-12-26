@@ -32,8 +32,8 @@ def login(): #Add users
             user = form.users.data
             return redirect(url_for('main', user=user.name))
         elif formuser.validate_on_submit():
-            user = formuser.name.data
-            newuser = User(name=user)
+            name = formuser.name.data
+            newuser = User(name=name)
             db.session.add(newuser)
             db.session.commit()
             return redirect(url_for('login'))
