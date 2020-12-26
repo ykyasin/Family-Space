@@ -13,11 +13,11 @@ def main(user = "No User"):
     postform = PostForm()
     if request.method == 'POST':
         post = postform.detail.data
-        new_post = Post(detail=post, user = user.name)
+        new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
         #User.query.filter_by(name=user).first()
         db.session.add(new_post)
         db.session.commit()
-        return redirect(url_for('main', user.name))
+        return redirect(url_for('main', user=user))
     post_db = Post.query.order_by(Post.id).all()
     posts = []
     users = []
