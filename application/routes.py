@@ -1,6 +1,6 @@
 from application import app, db
 from application.models import User, Post
-from application.forms import UserForm, PostForm, Login
+from application.forms import UserForm, PostForm, Login, AddUser
 from flask import Flask, render_template, request, redirect, url_for
 
 @app.route('/')
@@ -26,7 +26,7 @@ def main(user = "No User"):
 @app.route('/login', methods = ['GET','POST'])
 def login(): #Add users
     form = Login()
-    if request.method == 'POST':
+    if form.validate_on_submit():
         user = form.users.data
         return redirect(url_for('main', user=user.name))
     return render_template('login.html', form = form)
