@@ -1,18 +1,14 @@
-<html>
-    <head>
-        
-    </head>
-    <body>
-        <p> {{user}} </p> <br>
+{% extends 'layout.html' %}
+{% block body %}
+    <p> {{user}} </p> <br>
         <form action="" method="POST">
             {{postform.hidden_tag() }}
             {{postform.detail.label}} {{postform.detail}}
             <br>
             {{postform.submit}}
         </form>
-        <br>
-        {% for post in posts %}
+    <br>
+    {% for post in posts %}
         <p>{{post}}</p>
-        {% endfor %}
-    </body>
-</html>
+    {% endfor %}
+{% endblock body %}
