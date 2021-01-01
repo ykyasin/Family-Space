@@ -5,6 +5,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 @app.route('/')
 @app.route('/home')
+@app.route('/main')
 def home():
     return redirect(url_for('login'))
 
