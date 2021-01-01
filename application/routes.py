@@ -20,6 +20,7 @@ def main(user = "No User"):
         #User.query.filter_by(name=user).first()
         db.session.add(new_post)
         db.session.commit()
+        postform.submit.data = ""
         return redirect(url_for('main', user=user))
     
     if delpost.submit.data: 
