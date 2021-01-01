@@ -33,7 +33,8 @@ def main(user = "No User"):
         db.session.commit()
         return redirect(url_for('login'))
 
-    #if delpost.submit.data: 
+    if delpost.submit.data: 
+        return post 
 
         
     """ if request.method == 'POST':
