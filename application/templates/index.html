@@ -9,7 +9,7 @@
         </form>
     <br>
     {% for post in posts %}
-        <p> {{users[posts.index(post)]}} says: {{post}}</p>
+        <p> {{users[posts.index(post)]}} says: {{post}}
         {% if users[posts.index(post)] == user %}
             <form action="" method="POST">
                 {{postform.post(value=posts_id[posts.index(post)])}}
@@ -17,6 +17,7 @@
             </form>
         {% endif %}
     {% endfor %}
+    </p>
     <br>
     <br>
     <form action="" method="POST"> 
