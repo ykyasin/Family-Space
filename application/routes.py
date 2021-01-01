@@ -44,7 +44,7 @@ def main(user = "No User"):
     users = []
     for i in range(len(post_db)):
         posts.append(post_db[i].detail)
-        if post_db[i].user.name:
+        if post_db[i].user:
             users.append(post_db[i].user.name)
         else:
             users.append("Deleted")
