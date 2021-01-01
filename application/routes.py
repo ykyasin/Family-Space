@@ -23,7 +23,8 @@ def main(user = "No User"):
         return redirect(url_for('main', user=user))
     
     if delpost.submit.data: 
-        return post 
+        post = delpost.post.data
+        return post
 
     if deluser.submit.data:
         duser = User.query.filter_by(name=user).first()
