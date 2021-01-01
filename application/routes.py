@@ -23,7 +23,7 @@ def main(user = "No User"):
     if deluser.submit.data:
         duser = User.query.filter_by(name=user).first()
         if Post.query.filter_by(user = duser).first():
-            dpost = Post.query.filter_by(user = duser).first():
+            dpost = Post.query.filter_by(user = duser).first()
             db.session.delete(dpost)
         db.session.delete(duser)
         db.session.commit()
