@@ -13,7 +13,7 @@ def main(user = "No User"):
     postform = PostForm()
     deluser = DelUser()
     if request.method == 'POST':
-        if deluser.submit.data:
+        if deluser.validate_on_submit:
             user = User.query.filter_by(name=user).first()
             db.session.delete(user)
             db.session.commit()
