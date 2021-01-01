@@ -25,8 +25,9 @@ def main(user = "No User"):
             return redirect(url_for('main', user=user))
         
         if postform.submit2.data: 
-            dcpost = postform.post.data
-            return dcpost
+            postid = postform.post.data
+            dcpost = Post.query.filter_by(id=postid).first()
+            return dcpost.detail
             
         if postform.submit3.data:
             duser = User.query.filter_by(name=user).first()
