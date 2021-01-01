@@ -53,11 +53,14 @@ def main(user = "No User"):
             return redirect(url_for('main', user=user)) """
     post_db = Post.query.order_by(Post.id).all()
     posts = []
+    posts_id = []
     users = []
     for i in range(len(post_db)):
         posts.append(post_db[i].detail)
+        posts_id.append(post_db[i].id)
         users.append(post_db[i].user.name)
-    return render_template('index.html', postform = postform, posts=posts, user=user, users=users, deluser=deluser, delpost=delpost)
+    return render_template('index.html', postform = postform, posts=posts,...
+                     user=user, users=users, posts_id=posts_id, deluser=deluser, delpost=delpost)
 
 @app.route('/login', methods = ['GET','POST'])
 def login(): #Add users

@@ -12,7 +12,7 @@
         <p> {{users[posts.index(post)]}} says: {{post}}</p>
         {% if users[posts.index(post)] == user %}
             <form action="" method="POST">
-                {{delpost.post(value=post)}}
+                {{delpost.post(value=posts_id[posts.index(post)])}}
                 {{delpost.submit}}
             </form>
         {% endif %}
