@@ -12,8 +12,6 @@ def home():
 @app.route('/main/<user>', methods = ['GET','POST'])
 def main(user = "No User"):
     postform = PostForm()
-    deluser = DelUser()
-    delpost = DelPost()
 
     if request.method == 'POST':
         if postform.submit.data:
