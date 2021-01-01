@@ -84,4 +84,6 @@ def userform():
     
     return render_template('name.html', userform = userform)
 
-
+@app.route('/test'):
+def test():
+    return "works"
