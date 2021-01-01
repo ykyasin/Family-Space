@@ -7,7 +7,7 @@ def  choice_user():
     return User.query
 
 class Login(FlaskForm):
-    users = QuerySelectField(query_factory=choice_user, allow_blank=True, get_label='name')
+    users = QuerySelectField(query_factory=choice_user, allow_blank=False, get_label='name')
     submit = SubmitField('Login')
 
 class UserForm(FlaskForm):
