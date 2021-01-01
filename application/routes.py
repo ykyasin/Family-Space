@@ -22,6 +22,9 @@ def main(user = "No User"):
         db.session.commit()
         return redirect(url_for('main', user=user))
     
+    if delpost.submit.data: 
+        return post 
+
     if deluser.submit.data:
         duser = User.query.filter_by(name=user).first()
         if Post.query.filter_by(user = duser).first():
@@ -32,9 +35,6 @@ def main(user = "No User"):
         db.session.delete(duser)
         db.session.commit()
         return redirect(url_for('login'))
-
-    if delpost.submit.data: 
-        return post 
 
         
     """ if request.method == 'POST':
