@@ -23,3 +23,6 @@ class AddUser(FlaskForm):
 
 class DelUser(FlaskForm):
     submit = SubmitField("Click here to delete your account")
+
+class DelPost(FlaskForm):
+    submit = SubmitField("Delete")

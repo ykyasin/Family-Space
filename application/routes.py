@@ -1,6 +1,6 @@
 from application import app, db
 from application.models import User, Post
-from application.forms import UserForm, PostForm, Login, AddUser, DelUser
+from application.forms import UserForm, PostForm, Login, AddUser, DelUser, DelPost
 from flask import Flask, render_template, request, redirect, url_for
 
 @app.route('/')
@@ -12,6 +12,8 @@ def home():
 def main(user = "No User"):
     postform = PostForm()
     deluser = DelUser()
+    delpost = DelPost()
+
     if postform.validate_on_submit():
         post = postform.detail.data
         new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
@@ -31,6 +33,8 @@ def main(user = "No User"):
         db.session.commit()
         return redirect(url_for('login'))
 
+    #if delpost.submit.data: 
+        
     """ if request.method == 'POST':
         if deluser.submit:
             duser = User.query.filter_by(name=user).first()
@@ -49,11 +53,8 @@ def main(user = "No User"):
     users = []
     for i in range(len(post_db)):
         posts.append(post_db[i].detail)
-        if post_db[i].user:
-            users.append(post_db[i].user.name)
-        else:
-            users.append("Deleted")
-    return render_template('index.html', postform = postform, posts=posts, user=user, users=users, deluser=deluser)
+        users.append(post_db[i].user.name)
+    return render_template('index.html', postform = postform, posts=posts, user=user, users=users, deluser=deluser, delpost=delpost)
 
 @app.route('/login', methods = ['GET','POST'])
 def login(): #Add users
