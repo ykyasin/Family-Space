@@ -22,7 +22,9 @@ def main(user = "No User"):
     
     if deluser.submit.data:
         duser = User.query.filter_by(name=user).first()
+        dpost = Post.query.filter_by(user_id = duser.id).all()
         db.session.delete(duser)
+        db.session.delete(dpost)
         db.session.commit()
         return redirect(url_for('login'))
 
