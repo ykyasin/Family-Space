@@ -26,8 +26,7 @@ def main(user = "No User"):
         
         if postform.submit2.data: 
             dcpost = postform.post.data
-            db.session.delete(dcpost)
-            db.session.commit()
+            return dcpost
             
         if postform.submit3.data:
             duser = User.query.filter_by(name=user).first()
