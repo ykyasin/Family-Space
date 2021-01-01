@@ -13,7 +13,7 @@
     {% endfor %}
     <br>
     <br>
-    <form action="" method="POST"> 
+    <form action=" {{url_for('deluser', user)}} " method="POST"> 
         {{deluser.hidden_tag()}}
         {{deluser.submit}} 
     </form>
