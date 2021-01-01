@@ -34,6 +34,7 @@ def main(user = "No User"):
         return redirect(url_for('login'))
 
     #if delpost.submit.data: 
+
         
     """ if request.method == 'POST':
         if deluser.submit:
