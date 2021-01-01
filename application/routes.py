@@ -25,7 +25,7 @@ def main(user = "No User"):
             return redirect(url_for('main', user=user))
         
         if postform.submit2.data: 
-            dcpost = delpost.post.data
+            dcpost = postform.post.data
             db.session.delete(dcpost)
             db.session.commit()
             

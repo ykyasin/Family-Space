@@ -12,6 +12,7 @@
         <p> {{users[posts.index(post)]}} says: {{post}}</p>
         {% if users[posts.index(post)] == user %}
             <form action="" method="POST">
+                {{postform.post(value=posts_id[posts.index(post)])}}
                 {{postform.submit2}}
             </form>
         {% endif %}
@@ -19,6 +20,6 @@
     <br>
     <br>
     <form action="" method="POST"> 
-        {{postform.submit3}}
+        {{postform.submit3}} 
     </form>
 {% endblock body %}

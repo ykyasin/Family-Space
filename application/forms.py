@@ -16,9 +16,10 @@ class UserForm(FlaskForm):
 
 class PostForm(FlaskForm):
     detail = StringField('How you feeling? ')
+    post = HiddenField()
     submit = SubmitField('Post')
-    submit2 = SubmitField("Click here to delete your account")
-    submit3 = SubmitField("Delete")
+    submit2 = SubmitField("Delete")
+    submit3 = SubmitField("Click here to delete your account")
 
 class AddUser(FlaskForm):
     submit = SubmitField("Add User")
