@@ -22,7 +22,7 @@ def main(user = "No User"):
         db.session.commit()
         return redirect(url_for('main', user=user))
     
-    if delpost.submit.data: 
+    if delpost.validate_on_submit(): 
         post = delpost.post.data
         return post
 
