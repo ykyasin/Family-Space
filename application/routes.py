@@ -24,12 +24,12 @@ def main(user = "No User"):
             postform.submit.data = ""
             return redirect(url_for('main', user=user))
         
-        if delpost.submit.data: 
+        if postform.submit2.data: 
             dcpost = delpost.post.data
             db.session.delete(dcpost)
             db.session.commit()
             
-        if deluser.submit.data:
+        if postform.submit3.data:
             duser = User.query.filter_by(name=user).first()
             if Post.query.filter_by(user = duser).first():
                 dpost = Post.query.filter_by(user = duser).all()
