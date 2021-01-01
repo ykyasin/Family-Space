@@ -12,7 +12,6 @@ def home():
 def main(user = "No User"):
     postform = PostForm()
     deluser = DelUser()
-
     if postform.submit.data and postform.validate():
         post = postform.detail.data
         new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
@@ -84,6 +83,6 @@ def userform():
     
     return render_template('name.html', userform = userform)
 
-@app.route('/test', methods = ['POST'])
-def test():
+@app.route('/deluser', methods = ['GET','POST'])
+def deluser():
     return "works"
