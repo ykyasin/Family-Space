@@ -1,6 +1,6 @@
 from application import app, db
 from application.models import User, Post
-from application.forms import UserForm, PostForm, Login, AddUser, DelUser, DelPost
+from application.forms import UserForm, PostForm, Login, AddUser
 from flask import Flask, render_template, request, redirect, url_for
 
 @app.route('/')
