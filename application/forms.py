@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, HiddenField
 from wtforms_sqlalchemy.fields import QuerySelectField
 from application.models import User
 
@@ -25,4 +25,5 @@ class DelUser(FlaskForm):
     submit = SubmitField("Click here to delete your account")
 
 class DelPost(FlaskForm):
+    post = HiddenField()
     submit = SubmitField("Delete")
