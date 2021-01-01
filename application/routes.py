@@ -14,29 +14,33 @@ def main(user = "No User"):
     deluser = DelUser()
     delpost = DelPost()
 
-    if delpost.submit.data: 
-        post = delpost.post.data
-        return post
-
-    if postform.submit.data:
-        post = postform.detail.data
-        new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
-        #User.query.filter_by(name=user).first()
-        db.session.add(new_post)
-        db.session.commit()
-        postform.submit.data = ""
+    if request.method == 'POST':
+        if postform.submit.data:
+            post = postform.detail.data
+            new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
+            #User.query.filter_by(name=user).first()
+            db.session.add(new_post)
+            db.session.commit()
+            postform.submit.data = ""
+            return redirect(url_for('main', user=user))
+        
+        if delpost.submit.data: 
+            dcpost = delpost.post.data
+            db.session.delete(dcpost)
+            db.session.commit()
+            
+        if deluser.submit.data:
+            duser = User.query.filter_by(name=user).first()
+            if Post.query.filter_by(user = duser).first():
+                dpost = Post.query.filter_by(user = duser).all()
+                for post in range(len(dpost)):
+                    db.session.delete(dpost[post])
+                    
+            db.session.delete(duser)
+            db.session.commit()
+            return redirect(url_for('login'))
+        
         return redirect(url_for('main', user=user))
-
-    if deluser.submit.data:
-        duser = User.query.filter_by(name=user).first()
-        if Post.query.filter_by(user = duser).first():
-            dpost = Post.query.filter_by(user = duser).all()
-            for post in range(len(dpost)):
-                db.session.delete(dpost[post])
-                
-        db.session.delete(duser)
-        db.session.commit()
-        return redirect(url_for('login'))
 
         
     """ if request.method == 'POST':
