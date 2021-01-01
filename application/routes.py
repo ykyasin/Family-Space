@@ -20,7 +20,7 @@ def main(user = "No User"):
         db.session.commit()
         return redirect(url_for('main', user=user))
     
-    if deluser.validate_on_submit():
+    if deluser.submit.data:
         duser = User.query.filter_by(name=user).first()
         db.session.delete(duser)
         db.session.commit()
