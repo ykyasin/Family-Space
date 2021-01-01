@@ -60,7 +60,7 @@ def main(user = "No User"):
         posts_id.append(post_db[i].id)
         users.append(post_db[i].user.name)
     return render_template('index.html', postform = postform, posts=posts,...
-                     user=user, users=users, posts_id=posts_id, deluser=deluser, delpost=delpost)
+                     ...user=user, users=users, posts_id=posts_id, deluser=deluser, delpost=delpost)
 
 @app.route('/login', methods = ['GET','POST'])
 def login(): #Add users
