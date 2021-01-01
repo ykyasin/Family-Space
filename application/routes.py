@@ -14,6 +14,10 @@ def main(user = "No User"):
     deluser = DelUser()
     delpost = DelPost()
 
+    if delpost.submit.data: 
+        post = delpost.post.data
+        return post
+
     if postform.submit.data:
         post = postform.detail.data
         new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
@@ -22,10 +26,6 @@ def main(user = "No User"):
         db.session.commit()
         postform.submit.data = ""
         return redirect(url_for('main', user=user))
-    
-    if delpost.submit.data: 
-        post = delpost.post.data
-        return post
 
     if deluser.submit.data:
         duser = User.query.filter_by(name=user).first()
