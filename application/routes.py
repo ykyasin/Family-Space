@@ -1,6 +1,6 @@
 from application import app, db
 from application.models import User, Post
-from application.forms import UserForm, PostForm, Login, AddUser
+from application.forms import UserForm, PostForm, Login, AddUser, DelUser
 from flask import Flask, render_template, request, redirect, url_for
 
 @app.route('/')
@@ -11,20 +11,27 @@ def home():
 @app.route('/main/<user>', methods = ['GET','POST'])
 def main(user = "No User"):
     postform = PostForm()
+    deluser = DelUser()
     if request.method == 'POST':
-        post = postform.detail.data
-        new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
-        #User.query.filter_by(name=user).first()
-        db.session.add(new_post)
-        db.session.commit()
-        return redirect(url_for('main', user=user))
+        if deluser.submit.data:
+            user = User.query.filter_by(name=user).first()
+            db.session.delete(user)
+            db.session.commit()
+            return redirect(url_for('login'))
+        else:
+            post = postform.detail.data
+            new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
+            #User.query.filter_by(name=user).first()
+            db.session.add(new_post)
+            db.session.commit()
+            return redirect(url_for('main', user=user))
     post_db = Post.query.order_by(Post.id).all()
     posts = []
     users = []
     for i in range(len(post_db)):
         posts.append(post_db[i].detail)
         users.append(post_db[i].user.name)
-    return render_template('index.html', postform = postform, posts=posts, user=user, users = users)
+    return render_template('index.html', postform = postform, posts=posts, user=user, users=users, deluser=deluser)
 
 @app.route('/login', methods = ['GET','POST'])
 def login(): #Add users

@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 {% block body %}
-    <p> {{user}} </p> <br>
+    <p> {{user}} </p> 
+    <p>Do you want to delete your account? <form action="" method="POST"> {{deluser.submit}} </form> </p>
         <form action="" method="POST">
             {{postform.hidden_tag() }}
             {{postform.detail.label}} {{postform.detail}}

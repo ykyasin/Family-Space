@@ -20,3 +20,6 @@ class PostForm(FlaskForm):
 
 class AddUser(FlaskForm):
     submit = SubmitField("Add User")
+
+class DelUser(FlaskForm):
+    submit = SubmitField("Delete")
