@@ -13,9 +13,9 @@ def main(user = "No User"):
     postform = PostForm()
     deluser = DelUser()
     if request.method == 'POST':
-        if deluser.validate_on_submit:
-            user = User.query.filter_by(name=user).first()
-            db.session.delete(user)
+        if deluser.submit:
+            duser = User.query.filter_by(name=user).first()
+            db.session.delete(duser)
             db.session.commit()
             return redirect(url_for('login'))
         else:
