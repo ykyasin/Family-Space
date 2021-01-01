@@ -10,7 +10,7 @@
     <br>
     {% for post in posts %}
         <p> {{users[posts.index(post)]}} says: {{post}}</p>
-        {% if {{users[posts.index(post)]}} == {{user}} %}
+        {% if users[posts.index(post)] == user %}
             <form action="" method="POST">
                 {{delpost.post}} = {{post}}
                 {{delpost.submit}}
