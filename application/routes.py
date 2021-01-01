@@ -14,7 +14,7 @@ def main(user = "No User"):
     deluser = DelUser()
     delpost = DelPost()
 
-    if postform.validate_on_submit():
+    if postform.submit.data:
         post = postform.detail.data
         new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
         #User.query.filter_by(name=user).first()
