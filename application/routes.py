@@ -12,7 +12,22 @@ def home():
 def main(user = "No User"):
     postform = PostForm()
     deluser = DelUser()
-    if request.method == 'POST':
+
+    if postform.submit.data and postform.validate():
+        post = postform.detail.data
+        new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
+        #User.query.filter_by(name=user).first()
+        db.session.add(new_post)
+        db.session.commit()
+        return redirect(url_for('main', user=user))
+    
+    if deluser.submit.data and deluser.validate():
+        duser = User.query.filter_by(name=user).first()
+        db.session.delete(duser)
+        db.session.commit()
+        return redirect(url_for('login'))
+
+    """ if request.method == 'POST':
         if deluser.submit:
             duser = User.query.filter_by(name=user).first()
             db.session.delete(duser)
@@ -24,7 +39,7 @@ def main(user = "No User"):
             #User.query.filter_by(name=user).first()
             db.session.add(new_post)
             db.session.commit()
-            return redirect(url_for('main', user=user))
+            return redirect(url_for('main', user=user)) """
     post_db = Post.query.order_by(Post.id).all()
     posts = []
     users = []
