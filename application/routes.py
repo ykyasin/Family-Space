@@ -21,13 +21,12 @@ def main(user = "No User"):
             #User.query.filter_by(name=user).first()
             db.session.add(new_post)
             db.session.commit()
-            postform.submit.data = ""
-            return redirect(url_for('main', user=user))
         
         if postform.submit2.data: 
             postid = postform.post.data
             dcpost = Post.query.filter_by(id=postid).first()
-            return dcpost.detail
+            db.session.delete(dcpost)
+            db.session.commit()
             
         if postform.submit3.data:
             duser = User.query.filter_by(name=user).first()
