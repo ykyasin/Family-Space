@@ -1,7 +1,6 @@
 {% extends 'layout.html' %}
 {% block body %}
-    <p> {{user}} </p> 
-    <p>Do you want to delete your account? <form action="" method="POST"> {{deluser.submit}} </form> </p>
+    <h2> Hello {{user}} </h2> 
         <form action="" method="POST">
             {{postform.hidden_tag() }}
             {{postform.detail.label}} {{postform.detail}}
@@ -12,4 +11,7 @@
     {% for post in posts %}
         <p> {{users[posts.index(post)]}} says: {{post}}</p>
     {% endfor %}
+    <br>
+    <br>
+    <p>Do you want to delete your account? <form action="" method="POST"> {{deluser.submit}} </form> </p>
 {% endblock body %}
