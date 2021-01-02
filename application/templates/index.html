@@ -8,7 +8,7 @@
             {{postform.submit}}
         </form>
     <br>
-    <div class = "post">
+    <div style="background-color:lavenderblush;">
     {% for post in posts %}
         <p> {{users[posts.index(post)]}} says: {{post}} </p>
         {% if users[posts.index(post)] == user %}
