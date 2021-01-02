@@ -22,4 +22,15 @@
     <form action="" method="POST"> 
         {{postform.submit3}} 
     </form>
+    <br>
+    {% if name_change == False %}
+        <form action="" method="POST">
+            {{postform.chname_button}}
+        </form>
+    {% else %}
+        <form action="" method="POST">
+            {{postform.chname.label}} {{postform.chname}}  
+            {{postform.submit4}}<br>
+        </form>
+    {% endif %}
 {% endblock body %}

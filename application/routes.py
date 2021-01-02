@@ -12,8 +12,21 @@ def home():
 @app.route('/main/<user>', methods = ['GET','POST'])
 def main(user = "No User"):
     postform = PostForm()
+    name_change = False
 
     if request.method == 'POST':
+        if postform.chname_button.data: 
+            name_change = True
+            return render_template('index.html', postform = postform, posts=posts, user=user, users=users, posts_id=posts_id, name_change=name_change)
+
+        if postform.submit4.data:
+            newname = postform.chname.data
+            olduser = User.query.filter_by(name=user).first()
+            olduser.name = newname
+            db.session.commit()
+            user = newname
+
+
         if postform.submit.data:
             post = postform.detail.data
             new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
@@ -40,20 +53,6 @@ def main(user = "No User"):
         
         return redirect(url_for('main', user=user))
 
-        
-    """ if request.method == 'POST':
-        if deluser.submit:
-            duser = User.query.filter_by(name=user).first()
-            db.session.delete(duser)
-            db.session.commit()
-            return redirect(url_for('login'))
-        else:
-            post = postform.detail.data
-            new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
-            #User.query.filter_by(name=user).first()
-            db.session.add(new_post)
-            db.session.commit()
-            return redirect(url_for('main', user=user)) """
     post_db = Post.query.order_by(Post.id).all()
     posts = []
     posts_id = []
@@ -62,7 +61,7 @@ def main(user = "No User"):
         posts.append(post_db[i].detail)
         posts_id.append(post_db[i].id)
         users.append(post_db[i].user.name)
-    return render_template('index.html', postform = postform, posts=posts, user=user, users=users, posts_id=posts_id)
+    return render_template('index.html', postform = postform, posts=posts, user=user, users=users, posts_id=posts_id, name_change=name_change)
 
 @app.route('/login', methods = ['GET','POST'])
 def login(): #Add users

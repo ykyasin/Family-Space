@@ -20,6 +20,10 @@ class PostForm(FlaskForm):
     submit = SubmitField('Post')
     submit2 = SubmitField("Delete")
     submit3 = SubmitField("Click here to delete your account")
+    chname_button = SubmitField('Change name?')
+    chname = StringField('Input name')
+    submit4 = SubmitField("Change")
+    
 
 class AddUser(FlaskForm):
     submit = SubmitField("Add User")
