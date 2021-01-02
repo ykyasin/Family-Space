@@ -11,7 +11,7 @@ class Login(FlaskForm):
     submit = SubmitField('Login')
 
 class UserForm(FlaskForm):
-    name = StringField('Input name')
+    name = StringField('Input name', validators=[DataRequired()])
     submit = SubmitField('Add User')
 
 class PostForm(FlaskForm):
