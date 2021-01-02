@@ -12,11 +12,16 @@ def home():
 @app.route('/main/<user>', methods = ['GET','POST'])
 def main(user = "No User"):
     postform = PostForm()
-    name_change = False
+    name_change_session = False
+    if name_change_session == False:
+        name_change = False
+    else: 
+        name_change = True
 
     if request.method == 'POST':
         if postform.chname_button.data: 
             name_change = True
+            name_change_session = True
             postform = PostForm()
             return render_template('index.html', postform = postform, posts=posts, user=user, users=users, posts_id=posts_id, name_change=name_change)
 
@@ -26,6 +31,7 @@ def main(user = "No User"):
             olduser.name = newname
             db.session.commit()
             user = newname
+            name_change_session = False
 
 
         if postform.submit.data:
