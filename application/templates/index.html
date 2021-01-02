@@ -39,7 +39,7 @@
     <br>
     <form action="" method="POST">
     {% for post in posts %}
-        <p class="hmm"> {{users[posts.index(post)]}} says: {{post}} on the {{post_time[posts.index(post)]}} </p>
+        <p class="hmm"> {{users[posts.index(post)]}} says: {{post}} on the {{post_time[posts.index(post)].strftime("%B")}} </p>
         {% if users[posts.index(post)] == user %}
                 {{postform.post(value=posts_id[posts.index(post)])}}
                 {{postform.submit2}}
