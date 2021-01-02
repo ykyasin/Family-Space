@@ -87,6 +87,7 @@ def main(user):
 def login(): #Add users
     form = Login()
     formuser= UserForm()
+    are_users = db.query(User).first()
     if request.method == 'POST':
         if formuser.name.data:
             name = formuser.name.data
@@ -98,7 +99,7 @@ def login(): #Add users
             user = form.users.data
             return redirect(url_for('main', user=user.name))
 
-    return render_template('login.html', form = form, formuser = formuser)
+    return render_template('login.html', form = form, formuser = formuser, are_users=are_users)
 
 @app.route('/add/<name>')
 def add(name):

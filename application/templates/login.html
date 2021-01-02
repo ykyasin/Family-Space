@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% block body %}
+{% if are_users == True %}
 <div class="row">
     <div class="col-sm-12">
         <h3> Login </h3> 
@@ -11,6 +12,7 @@
     </div>  
 </div>
 <br>
+{% endif %}
 <div class="row">
     <div class="col-sm-12">
         <h4> Add New User </h4> 
