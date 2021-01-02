@@ -23,7 +23,6 @@ def main(user = "No User"):
             name_change = True
             name_change_session = True
             postform = PostForm()
-            return render_template('index.html', postform = postform, posts=posts, user=user, users=users, posts_id=posts_id, name_change=name_change)
 
         if postform.submit4.data:
             newname = postform.chname.data
