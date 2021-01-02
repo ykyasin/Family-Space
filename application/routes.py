@@ -52,6 +52,7 @@ def main(user):
             #User.query.filter_by(name=user).first()
             db.session.add(new_post)
             db.session.commit()
+            
         
         if postform.submit2.data: 
             postid = postform.post.data
@@ -126,6 +127,4 @@ def userform():
     
     return render_template('name.html', userform = userform)
 
-@app.route('/deluser/<user>', methods = ['GET','POST'])
-def deluser(user):
-    return "works"
+
