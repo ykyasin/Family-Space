@@ -18,12 +18,12 @@ class PostForm(FlaskForm):
     detail = StringField('How you feeling? ')
     post = HiddenField()
     submit = SubmitField('Post')
-    submit2 = SubmitField("Delete")
-    submit3 = SubmitField("Click here to delete your account")
-    chname_button = SubmitField('Change name?')
+    submit2 = SubmitField('Delete')
+    submit3 = SubmitField('Click here to delete your account')
+    chname_button = SubmitField('Click here to change account name')
     chname = StringField('Input name')
-    submit4 = SubmitField("Change")
+    submit4 = SubmitField('Change')
     
 
 class AddUser(FlaskForm):
-    submit = SubmitField("Add User")
+    submit = SubmitField('Add User')
