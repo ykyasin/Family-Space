@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block body %}
 <div class="row">
-    <div class="col-sm-4" style="background-color:lavender;">
+    <div class="col-sm-4">
     <h2> Hello {{user}} </h2> 
         <form action="" method="POST" >
             {{postform.hidden_tag() }}
@@ -10,7 +10,7 @@
         </form>
     <br>
     </div>  
-    <div class="col-sm-8" style="background-color:lavenderblush;"></div>
+    <div class="col-sm-8"></div>
         {% if name_change == False %}
             <form action="" method="POST">
                 {{postform.chname_button}}
