@@ -17,7 +17,7 @@ def main(user = "No User"):
     if request.method == 'POST':
         if postform.chname_button.data: 
             name_change = True
-            return render_template('index.html', postform = postform, posts=posts, user=user, users=users, posts_id=posts_id, name_change=name_change)
+            
 
         if postform.submit4.data:
             newname = postform.chname.data
