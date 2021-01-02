@@ -1,23 +1,26 @@
 #   **Family-Space**
 
-Contents: 
-* Introduction 
+## Introduction: 
+### Objective
 
-* Software design: 
-*   ERD
+This is an individual project in order to meet the SFIA requirements. The objective of this project is as follows: 
 
-![ERDfile1](https://user-images.githubusercontent.com/73299366/103420584-eb003d00-4b8f-11eb-86fc-6fdd83f0f875.png)
+"To create a CRUD application with utilisation of supporting tools,
+methodologies and technologies that encapsulate all core modules
+covered during training." 
 
-CI Pipeline
-Component-Level
-Risk Assessment 
+The concepts gained from this project is as follows: 
+- Project management (Specifically the agile methodology)
+- Python coding and testing
+- The use of GitHub
+- Basic Linux
+- Python Web Development using the Flask framework
+- Continuous integration with Jenkins
+- Understanding and utilising Cloud concepts using GCP
 
-Software Development 
-CRUD functionality 
 
-Testing:
-Coverage Result
-Coverage Discussion 
-
-System Integration and Build:
-
+### My project proposol 
+I decided to make a family blog website, called Family-Space. The idea behind this project is to allow family members to connect
+with each other online. Esentially a social media website just for you and your loved ones. In this web application,
+users will be able to create accounts and create notes (inspiration behind the name notes is the notes stuck magnetically on the fridge).
+Users will also be able to change their account name as well as delete their accounts and notes.  
