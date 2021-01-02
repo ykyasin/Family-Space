@@ -25,6 +25,7 @@ class PostForm(FlaskForm):
     chname_button = SubmitField('Change account name')
     chname = StringField('Input name')
     submit4 = SubmitField('Change')
+    submit5 = SubmitField('Logout')
     
 
 class AddUser(FlaskForm):
