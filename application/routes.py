@@ -87,7 +87,7 @@ def main(user):
 def login(): #Add users
     form = Login()
     formuser= UserForm()
-    are_users = Users.query.all()
+    are_users = User.query.all()
     if request.method == 'POST':
         if formuser.name.data:
             name = formuser.name.data
