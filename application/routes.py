@@ -41,6 +41,9 @@ def main(user):
             delete_account = True
             return render_template('index.html', postform = postform, posts=posts, user=user, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
+        if postform.submit5.data:
+            return redirect(url_for('login'))
+
         if postform.submit.data:
             post = postform.detail.data
             new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
