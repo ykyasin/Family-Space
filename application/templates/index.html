@@ -32,7 +32,7 @@
         {% endif %}
     </div> 
     <br>
-    <form action="" method="POST" style="margin: 0; padding: 0;">
+    <form action="" method="POST">
     {% for post in posts %}
         <p class="hmm"> {{users[posts.index(post)]}} says: {{post}} </p>
         {% if users[posts.index(post)] == user %}
