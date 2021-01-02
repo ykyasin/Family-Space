@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, HiddenField
 from wtforms_sqlalchemy.fields import QuerySelectField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Length, ValidationError
 from application.models import User
 
 def  choice_user():
@@ -16,7 +16,10 @@ class UserForm(FlaskForm):
     submit = SubmitField('Add User')
 
 class PostForm(FlaskForm):
-    detail = StringField('How you feeling?', validators=[DataRequired()])
+    detail = StringField('How you feeling?', validators=[
+        InputRequired(),
+        Length(max=180)
+    ])
     post = HiddenField()
     submit = SubmitField('Post')
     submit2 = SubmitField('Delete')
@@ -24,7 +27,10 @@ class PostForm(FlaskForm):
     yesdel = SubmitField('Yes')
     nodel = SubmitField('No')
     chname_button = SubmitField('Change account name')
-    chname = StringField('Input name', validators=[DataRequired()])
+    chname = StringField('Input name', validators=[
+        InputRequired(),
+        Length(max=30)
+    ])
     submit4 = SubmitField('Change')
     submit5 = SubmitField('Logout')
     
