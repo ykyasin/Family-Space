@@ -9,15 +9,15 @@
         </form>
     <br>
     <div class="hmm" style="background-color:lavenderblush;">
+    <form action="" method="POST">
     {% for post in posts %}
         <p> {{users[posts.index(post)]}} says: {{post}} </p>
         {% if users[posts.index(post)] == user %}
-            <form action="" method="POST" style="margin: 0; padding: 0;">
                 {{postform.post(value=posts_id[posts.index(post)])}}
                 {{postform.submit2}}
-            </form>
         {% endif %}
     {% endfor %}
+    </form>
     </div>
     <br>
     <br>
