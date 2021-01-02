@@ -16,7 +16,7 @@ class UserForm(FlaskForm):
     submit = SubmitField('Add User')
 
 class PostForm(FlaskForm):
-    detail = StringField('How you feeling? ')
+    detail = StringField('How you feeling?', validators=[DataRequired()])
     post = HiddenField()
     submit = SubmitField('Post')
     submit2 = SubmitField('Delete')
@@ -24,7 +24,7 @@ class PostForm(FlaskForm):
     yesdel = SubmitField('Yes')
     nodel = SubmitField('No')
     chname_button = SubmitField('Change account name')
-    chname = StringField('Input name')
+    chname = StringField('Input name', validators=[DataRequired()])
     submit4 = SubmitField('Change')
     submit5 = SubmitField('Logout')
     
