@@ -108,23 +108,8 @@ def login(): #Add users
 
     return render_template('login.html', form = form, formuser = formuser, are_users=are_users)
 
-@app.route('/add/<name>')
-def add(name):
-    user = User(name=name)
-    db.session.add(user)
-    db.session.commit()
-    return f'New User added: {user.name}' 
 
-@app.route('/user', methods = ['GET','POST'])
-def userform():
-    userform = UserForm()
-    if request.method == 'POST':
-        name = userform.name.data
-        user = User(name=name)
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for('home'))
-    
-    return render_template('name.html', userform = userform)
+
+
 
 
