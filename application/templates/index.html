@@ -8,10 +8,10 @@
             {{postform.submit}}
         </form>
     <br>
-    <div class="hmm" style="background-color:lavenderblush;">
+    <div style="background-color:lavenderblush;">
     <form action="" method="POST" style="margin: 0; padding: 0;">
     {% for post in posts %}
-        <p> {{users[posts.index(post)]}} says: {{post}} </p>
+        <p class="hmm"> {{users[posts.index(post)]}} says: {{post}} </p>
         {% if users[posts.index(post)] == user %}
                 {{postform.post(value=posts_id[posts.index(post)])}}
                 {{postform.submit2}}
