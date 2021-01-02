@@ -11,7 +11,6 @@ def home():
 
 @app.route('/main/<user>', methods = ['GET','POST'])
 def main(user):
-    user = user.name
     postform = PostForm()
     name_change = False
     delete_account = False
@@ -93,8 +92,8 @@ def login(): #Add users
             db.session.commit()
             return redirect(url_for('login'))
         else:
-            user = User.query.filter_by(name=form.users.data).first()
-            return redirect(url_for('main', user=user))
+            user = form.users.data
+            return redirect(url_for('main', user=user.name))
 
     return render_template('login.html', form = form, formuser = formuser)
 
