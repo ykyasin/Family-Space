@@ -1,10 +1,9 @@
 {% extends 'layout.html' %}
 {% block body %}
     <h2> Hello {{user}} </h2> 
-        <form action="" method="POST" style="margin: 0; padding: 0;">
+        <form action="" method="POST" >
             {{postform.hidden_tag() }}
             {{postform.detail.label}} {{postform.detail}}
-            <br>
             {{postform.submit}}
         </form>
     <br>
