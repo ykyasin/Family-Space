@@ -9,7 +9,7 @@
         </form>
     <br>
     </div>  
-    <div class="col-sm-8" style="background-color:lavender;"></div>
+    <div class="col-sm-8" style="background-color:lavenderblush;"></div>
         {% if name_change == False %}
             <form action="" method="POST">
                 {{postform.chname_button}}
@@ -31,6 +31,7 @@
             </form>
         {% endif %}
     </div> 
+    <br>
     <form action="" method="POST" style="margin: 0; padding: 0;">
     {% for post in posts %}
         <p class="hmm"> {{users[posts.index(post)]}} says: {{post}} </p>
@@ -41,7 +42,7 @@
         <br>
     {% endfor %}
     </form>
-    <br>
+    <!-- <br>
     {% if name_change == False %}
         <form action="" method="POST">
             {{postform.chname_button}}
@@ -61,5 +62,5 @@
         <form action="" method="POST">
             Are you sure? {{postform.yesdel}}  {{postform.nodel}} 
         </form>
-    {% endif %}
+    {% endif %} -->
 {% endblock body %}
