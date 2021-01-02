@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% block body %}
+    <div class="col-sm-4" style="background-color:lavender;">
     <h2> Hello {{user}} </h2> 
         <form action="" method="POST" >
             {{postform.hidden_tag() }}
@@ -7,6 +8,29 @@
             {{postform.submit}}
         </form>
     <br>
+    </div>  
+    <div class="col-sm-8" style="background-color:lavender;"></div>
+        {% if name_change == False %}
+            <form action="" method="POST">
+                {{postform.chname_button}}
+            </form>
+        {% else %}
+            <form action="" method="POST">
+                {{postform.chname.label}} {{postform.chname}}  
+                {{postform.submit4}}<br>
+            </form>
+        {% endif %}
+        <br>
+        {% if delete_account == False %}
+            <form action="" method="POST">
+                {{postform.submit3}}
+            </form>
+        {% else %}
+            <form action="" method="POST">
+                Are you sure? {{postform.yesdel}}  {{postform.nodel}} 
+            </form>
+        {% endif %}
+    </div> 
     <form action="" method="POST" style="margin: 0; padding: 0;">
     {% for post in posts %}
         <p class="hmm"> {{users[posts.index(post)]}} says: {{post}} </p>
