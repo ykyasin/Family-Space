@@ -19,8 +19,10 @@ class PostForm(FlaskForm):
     post = HiddenField()
     submit = SubmitField('Post')
     submit2 = SubmitField('Delete')
-    submit3 = SubmitField('Click here to delete your account')
-    chname_button = SubmitField('Click here to change account name')
+    submit3 = SubmitField('Delete your account')
+    yesdel = SubmitField('Yes')
+    nodel = SubmitField('No')
+    chname_button = SubmitField('Change account name')
     chname = StringField('Input name')
     submit4 = SubmitField('Change')
     

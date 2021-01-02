@@ -13,6 +13,7 @@ def home():
 def main(user = "No User"):
     postform = PostForm()
     name_change = False
+    delete_account = False
     post_db = Post.query.order_by(Post.id).all()
     posts = []
     posts_id = []
@@ -26,7 +27,7 @@ def main(user = "No User"):
     if request.method == 'POST':
         if postform.chname_button.data: 
             name_change = True
-            return render_template('index.html', postform = postform, posts=posts, user=user, users=users, posts_id=posts_id, name_change=name_change)
+            return render_template('index.html', postform = postform, posts=posts, user=user, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
         if postform.submit4.data:
             newname = postform.chname.data
@@ -36,6 +37,9 @@ def main(user = "No User"):
             user = newname
             name_change_session = False
 
+        if postform.submit3.data:
+            delete_account = True
+            return render_template('index.html', postform = postform, posts=posts, user=user, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
         if postform.submit.data:
             post = postform.detail.data
@@ -50,7 +54,7 @@ def main(user = "No User"):
             db.session.delete(dcpost)
             db.session.commit()
             
-        if postform.submit3.data:
+        if postform.yesdel.data: #######
             duser = User.query.filter_by(name=user).first()
             if Post.query.filter_by(user = duser).first():
                 dpost = Post.query.filter_by(user = duser).all()
@@ -60,6 +64,9 @@ def main(user = "No User"):
             db.session.delete(duser)
             db.session.commit()
             return redirect(url_for('login'))
+        
+        if postform.nodel.data:
+            return redirect(url_for('main', user=user))
         
         return redirect(url_for('main', user=user))
 
@@ -71,7 +78,7 @@ def main(user = "No User"):
         posts.append(post_db[i].detail)
         posts_id.append(post_db[i].id)
         users.append(post_db[i].user.name) """
-    return render_template('index.html', postform = postform, posts=posts, user=user, users=users, posts_id=posts_id, name_change=name_change)
+    return render_template('index.html', postform = postform, posts=posts, user=user, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
 @app.route('/login', methods = ['GET','POST'])
 def login(): #Add users

@@ -32,4 +32,15 @@
     <form action="" method="POST"> 
         {{postform.submit3}} 
     </form>
+
+    <br>
+     {% if delete_account == False %}
+        <form action="" method="POST">
+            {{postform.submit3}}
+        </form>
+    {% else %}
+        <form action="" method="POST">
+            Are you sure? {{postform.yesdel}}  {{postform.nodel}} 
+        </form>
+    {% endif %}
 {% endblock body %}
