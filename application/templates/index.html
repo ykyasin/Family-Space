@@ -8,6 +8,7 @@
             {{postform.submit}}
         </form>
     <br>
+    <div class = "post">
     {% for post in posts %}
         {{users[posts.index(post)]}} says: {{post}}
         {% if users[posts.index(post)] == user %}
@@ -17,6 +18,7 @@
             </form>
         {% endif %}
     {% endfor %}
+    </div>
     <br>
     <br>
     <form action="" method="POST"> 
