@@ -1,16 +1,23 @@
 {% extends 'layout.html' %}
 {% block body %}
-    <form action="" method="POST">
-        {{form.hidden_tag()}}
-        {{form.users}} <br>
-        {{form.submit}}
-    </form>
-    <br>
-    <br>
-    <p>Add user: </p> 
-    <form action="" method="POST">
-        {{formuser.hidden_tag()}}
-        {{formuser.name.label}} {{formuser.name}}  
-        {{formuser.submit}}<br>
-    </form>
+<div class="row">
+    <div class="col-sm-12">
+        <h2> Login </h2> 
+            <form action="" method="POST">
+                {{form.hidden_tag()}}
+                {{form.users}} <br>
+                {{form.submit}}
+            </form>
+    </div>  
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <p>Add user: </p> 
+        <form action="" method="POST">
+            {{formuser.hidden_tag()}}
+            {{formuser.name.label}} {{formuser.name}}  
+            {{formuser.submit}}<br>
+        </form>
+    </div>  
+</div>
 {% endblock body %}
