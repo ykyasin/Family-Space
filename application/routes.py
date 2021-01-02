@@ -5,11 +5,10 @@ from flask import Flask, render_template, request, redirect, url_for
 
 @app.route('/')
 @app.route('/home')
-@app.route('/main')
 def home():
     return redirect(url_for('login'))
 
-@app.route('/main/<user>', methods = ['GET','POST'])
+@app.route('/main', methods = ['GET','POST'])
 def main(user):
     postform = PostForm()
     name_change = False
