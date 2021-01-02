@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% block body %}
+<div class="row">
     <div class="col-sm-4" style="background-color:lavender;">
     <h2> Hello {{user}} </h2> 
         <form action="" method="POST" >
@@ -31,6 +32,8 @@
             </form>
         {% endif %}
     </div> 
+</div>
+<div class="row">
     <br>
     <form action="" method="POST">
     {% for post in posts %}
@@ -42,6 +45,7 @@
         <br>
     {% endfor %}
     </form>
+</div>
     <!-- <br>
     {% if name_change == False %}
         <form action="" method="POST">
