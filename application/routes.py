@@ -10,7 +10,7 @@ def home():
     return redirect(url_for('login'))
 
 @app.route('/main/<user>', methods = ['GET','POST'])
-def main(user = "No User"):
+def main(user):
     postform = PostForm()
     name_change = False
     delete_account = False
