@@ -60,7 +60,7 @@
         <br>
         <form action="" method="POST">
             {{ postform.csrf_token() }}
-            {% for i in range(len(posts)) %}
+            {% for i in range(range_posts) %}
                 <p class="hmm"> {{posts_id[i]}} {{users[i]}} says: <b> {{post[i]}} </b> <span style="font-size: 0.875em">[{{post_time[posts[i]].strftime("%X")}}, {{post_time[posts[i]].strftime("%x")}}]</span>  </p>
                 {% if users[i] == user%}
                         {{postform.postid(value=posts_id[i])}}
