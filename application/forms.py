@@ -12,11 +12,11 @@ class Login(FlaskForm):
     submit = SubmitField('Login')
 
 class UserForm(FlaskForm):
-    name = StringField('Input name', validators=[
+    name = StringField('Name', validators=[
         InputRequired(),
         Length(min=2, max=20)
     ])
-    submit = SubmitField('Add User')
+    submit = SubmitField('Add new member')
 
     def validate_name(self, name):
         taken_users = User.query.all()
