@@ -11,9 +11,10 @@ def home():
 
 @app.route('/main/<user>', methods = ['GET','POST'])
 def main(user):
-    if postform.chname.errors: 
-        name_change = True
-    else: 
+    try: 
+        if postform.chname.errors: 
+            name_change = True
+    except UnboundLocalError: 
         name_change = False
 
     postform = PostForm()
