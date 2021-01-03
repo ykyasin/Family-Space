@@ -50,16 +50,16 @@ def main(user):
             if postform.submit.data:
                 post = postform.detail.data
                 new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
-                #User.query.filter_by(name=user).first()
                 db.session.add(new_post)
                 db.session.commit()
                 
             
             if postform.submit2.data: 
-                postid = 1#postform.post.data
-                dcpost = Post.query.filter_by(id=postid).first()
-                db.session.delete(dcpost)
-                db.session.commit()
+                return print(postform.post.data)
+                #postid = postform.post.data
+                #dcpost = Post.query.filter_by(id=postid).first()
+                #db.session.delete(dcpost)
+                #db.session.commit()
                 
             if postform.yesdel.data: #######
                 duser = User.query.filter_by(name=user).first()
