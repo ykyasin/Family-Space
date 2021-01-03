@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, HiddenField
 from wtforms_sqlalchemy.fields import QuerySelectField
-from wtforms.validators import DataRequired, Length, ValidationError, InputRequired
+from wtforms.validators import DataRequired, Length, ValidationError, InputRequired, Optional
 from application.models import User
 
 def  choice_user():
