@@ -33,19 +33,13 @@ class PostForm(FlaskForm):
     post = HiddenField()
     submit = SubmitField('Post')
     submit2 = SubmitField('Delete')
-    submit5 = SubmitField('Logout')
-
-class DelAccForm(FlaskForm): 
-    delacc_button = SubmitField('Delete your account')
-    yes_del = SubmitField('Yes')
-    no_del = SubmitField('No')
-
-
-
-class ChNameForm(FlaskForm):
+    submit3 = SubmitField('Delete your account')
+    yesdel = SubmitField('Yes')
+    nodel = SubmitField('No')
     chname_button = SubmitField('Change account name')
     chname = StringField('Input name')
-    submit = SubmitField('Change')
+    submit4 = SubmitField('Change')
+    submit5 = SubmitField('Logout')
 
     def validate_chname(self, name):
         taken_users = User.query.all()
@@ -57,6 +51,7 @@ class ChNameForm(FlaskForm):
                 raise ValidationError("Name has to be between 2 and 20 characters")
             elif name == taken_user.name.lower(): 
                 raise ValidationError("Name already taken, please choose another")
+    
 
 class AddUser(FlaskForm):
     submit = SubmitField('Add User')
