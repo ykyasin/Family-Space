@@ -58,17 +58,17 @@
 <div class="row">
     <div class="col-sm-8">
         <br>
-        <form action="" method="POST">
-            {{ postform.csrf_token() }}
-            {% for i in range(range_posts) %}
-                <p class="hmm"> {{posts_id[i]}} {{users[i]}} says: <b> {{posts[i]}} </b> <span style="font-size: 0.875em">[{{post_time[i].strftime("%X")}}, {{post_time[i].strftime("%x")}}]</span>  </p>
-                {% if users[i] == user%}
-                        {{postform.postid(value=posts_id[i])}}
-                        {{postform.submit2}}
-                {% endif %}
-                <br>
-            {% endfor %}
-        </form>
+        {% for i in range(range_posts) %}
+            <p class="hmm"> {{posts_id[i]}} {{users[i]}} says: <b> {{posts[i]}} </b> <span style="font-size: 0.875em">[{{post_time[i].strftime("%X")}}, {{post_time[i].strftime("%x")}}]</span>  </p>
+            {% if users[i] == user%}
+                <form action="" method="POST">
+                    {{ postform.csrf_token() }}
+                    {{postform.postid(value=posts_id[i])}}
+                    {{postform.submit2}}
+                </form>
+            {% endif %}
+            <br>
+        {% endfor %}
     </div>
 </div>
 {% endblock body %}
