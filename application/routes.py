@@ -15,7 +15,7 @@ def main(user):
     chnameform = ChNameForm()
     delaccform = DelAccForm()
     name_change = False
-    delete_account = False
+    delete_account = True
     post_db = Post.query.order_by(Post.id).all()
     posts = []
     posts_id = []
