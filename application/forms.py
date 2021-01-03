@@ -43,15 +43,15 @@ class PostForm(FlaskForm):
     submit4 = SubmitField('Change')
     submit5 = SubmitField('Logout')
 
-    def validate_chname(self, name):
+    def validate_chname(self, chname):
         taken_users = User.query.all()
-        name = name.data.lower()
-        for taken_user in taken_users:
-            if name.islower(): 
-                raise ValidationError("Not valid")
-            elif len(name) < 2 or len(name) > 20:
+        chname = chname.data.lower()
+        if chname.islower(): 
+            raise ValidationError("Not valid")
+        if len(chname) < 2 or len(chname) > 20:
                 raise ValidationError("Name has to be between 2 and 20 characters")
-            elif name == taken_user.name.lower(): 
+        for taken_user in taken_users:
+            if name == taken_user.name.lower(): 
                 raise ValidationError("Name already taken, please choose another")
     
 
