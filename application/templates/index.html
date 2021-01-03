@@ -62,7 +62,7 @@
         ##
         <form action="" method="POST">
             {{postform.hidden_tag() }}
-            {% for post_id, post in zip(posts_id, posts) %}
+            {% for post_id, post in itertools.izip(posts_id, posts) %}
                 <p class="hmm"> {{post_id}} {{users[posts.index(post)]}} says: <b> {{post}} </b> <span style="font-size: 0.875em">[{{post_time[posts.index(post)].strftime("%X")}}, {{post_time[posts.index(post)].strftime("%x")}}]</span>  </p>
                 {% if users[posts.index(post)] == user %}
                     {{postform.post(value=posts_id[posts.index(post)])}}
@@ -71,7 +71,7 @@
                 <br>
             {% endfor %}
             </form>
-    </div>
+    </div>  
 </div>
     <!-- <br>
     {% if name_change == False %}
