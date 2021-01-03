@@ -36,6 +36,7 @@ class PostForm(FlaskForm):
         Optional()
     ])
     post = HiddenField()
+    test = StringField('testing')
     submit = SubmitField('Post')
     submit2 = SubmitField('Delete')
     submit3 = SubmitField('Delete your account')

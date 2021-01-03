@@ -62,8 +62,9 @@
         {{postform.hidden_tag() }}
         {% for post in posts %}
             <p class="hmm"> {{posts_id[posts.index(post)]}} {{users[posts.index(post)]}} says: <b> {{post}} </b> <span style="font-size: 0.875em">[{{post_time[posts.index(post)].strftime("%X")}}, {{post_time[posts.index(post)].strftime("%x")}}]</span>  </p>
-            {% if users[posts.index(post)] == user and post == "hello"%}
-                    {{postform.post(value=posts_id[posts.index(post)])}}
+            {% if users[posts.index(post)] == user%}
+                    {{postform.post(value=1)}}
+                    {{postform.test}}
                     {{postform.submit2}}
             {% endif %}
             <br>
