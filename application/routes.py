@@ -15,7 +15,7 @@ def main(user):
     chnameform = ChNameForm()
     delaccform = DelAccForm()
     name_change = False
-    delete_account = True
+    delete_account = False
     post_db = Post.query.order_by(Post.id).all()
     posts = []
     posts_id = []
@@ -34,8 +34,16 @@ def main(user):
             delete_account = True
             return render_template('index.html', delaccform=delaccform, chnameform=chnameform, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
         
-        if delaccform.yes_del:
-           return "yes"
+        if delaccform.yes_del.data and delaccform.validate():
+            duser = User.query.filter_by(name=user).first()
+            if Post.query.filter_by(user = duser).first():
+                dpost = Post.query.filter_by(user = duser).all()
+                for post in range(len(dpost)):
+                    db.session.delete(dpost[post])
+                    
+            db.session.delete(duser)
+            db.session.commit()
+            return redirect(url_for('login'))
         
         if delaccform.no_del.data:
             delete_account = False
