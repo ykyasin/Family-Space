@@ -30,12 +30,12 @@
                 {{postform.chname.label}} {{postform.chname}}  
                 {{postform.submit4}}
                 {% if postform.chname.errors %}
+                {% endif %}
                 <div class='error'>
                     {% for error in postform.chname.errors %}
                         <span style="color:red">{{ error }}</span>
                     {% endfor %}
                 </div>
-                {% endif %}
                 <br>
             </form>
         {% endif %}

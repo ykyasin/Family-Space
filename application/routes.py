@@ -11,13 +11,8 @@ def home():
 
 @app.route('/main/<user>', methods = ['GET','POST'])
 def main(user):
-    try: 
-        if postform.chname.errors: 
-            name_change = True
-    except UnboundLocalError: 
-        name_change = False
-
     postform = PostForm()
+    name_change = False
     delete_account = False
     post_db = Post.query.order_by(Post.id).all()
     posts = []
