@@ -19,7 +19,7 @@ def main(user):
     posts_id = []
     post_time = []
     users = []
-    for i in reversed(range(len(post_db))):
+    for i in range(len(post_db)):
         posts.append(post_db[i].detail)
         posts_id.append(post_db[i].id)
         post_time.append(post_db[i].date_time)
