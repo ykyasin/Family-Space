@@ -7,6 +7,14 @@
             {{postform.hidden_tag() }}
             {{postform.detail.label}} {{postform.detail}}
             {{postform.submit}}
+            <br>
+            {% if postform.detail.errors %}
+            <div class='error'>
+                {% for error in postform.detail.errors %}
+                    <span style="color:red">{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
         </form>
     <br>
     </div>  
