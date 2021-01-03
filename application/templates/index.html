@@ -58,13 +58,15 @@
 <div class="row">
     <div class="col-sm-8">
         <br>
+    
+        ##
         <form action="" method="POST">
             {{postform.hidden_tag() }}
-            {% for post_id in posts_id %}
-                <p class="hmm"> {{post_id}} {{users[posts_id.index(post_id)]}} says: <b> {{posts[posts_id.index(post_id)]}} </b> <span style="font-size: 0.875em">[{{post_time[posts.index(post)].strftime("%X")}}, {{post_time[posts.index(post)].strftime("%x")}}]</span>  </p>
-                {% if users[posts_id.index(post_id)] == user %}
-                        {{postform.post(value=posts_id[posts.index(post)])}}
-                        {{postform.submit2}}
+            {% for post_id, post in zip(posts_id, posts) %}
+                <p class="hmm"> {{posts_id[posts.index(post)]}} {{users[posts.index(post)]}} says: <b> {{post}} </b> <span style="font-size: 0.875em">[{{post_time[posts.index(post)].strftime("%X")}}, {{post_time[posts.index(post)].strftime("%x")}}]</span>  </p>
+                {% if users[posts.index(post)] == user %}
+                    {{postform.post(value=posts_id[posts.index(post)])}}
+                    {{postform.submit2}}
                 {% endif %}
                 <br>
             {% endfor %}
