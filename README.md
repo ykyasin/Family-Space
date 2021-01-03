@@ -25,5 +25,10 @@ with each other online. Esentially a social media website just for you and your 
 users will be able to create accounts and create notes (inspiration behind the name notes is the notes stuck magnetically on the fridge).
 Users will also be able to change their account name as well as delete their accounts and notes.  
 
-## ERD
+## Software Design
+### ERD
+Originally, I wanted to add more complexity to the project by integrating a many to many relationship by adding comments as shown below in the first ERD. However, due to the added difficulty, I decided to take a more simpler approach to first meet the project specifications, this is shown in the second ERD image. The extra functonality may be added in a future sprint.
+
+***Image here***
+
 ![new_erd_vector](https://user-images.githubusercontent.com/73299366/103468965-b9859e00-4d56-11eb-836d-fe1f62ebc66b.png)
