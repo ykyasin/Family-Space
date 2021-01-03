@@ -36,14 +36,14 @@ def main(user):
         
         if delaccform.yes_del:
             duser = User.query.filter_by(name=user).first()
-                if Post.query.filter_by(user = duser).first():
-                    dpost = Post.query.filter_by(user = duser).all()
-                    for post in range(len(dpost)):
-                        db.session.delete(dpost[post])
-                        
-                db.session.delete(duser)
-                db.session.commit()
-                return redirect(url_for('login'))
+            if Post.query.filter_by(user = duser).first():
+                dpost = Post.query.filter_by(user = duser).all()
+                for post in range(len(dpost)):
+                    db.session.delete(dpost[post])
+                    
+            db.session.delete(duser)
+            db.session.commit()
+            return redirect(url_for('login'))
         
         if delaccform.no_del:
             return redirect(url_for('main', user=user))
