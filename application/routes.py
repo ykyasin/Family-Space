@@ -27,6 +27,13 @@ def main(user):
 
 
     if request.method == 'POST':
+        if postform.submit2.data: 
+                return str(postform.post.data) + "test"
+                #postid = postform.post.data
+                #dcpost = Post.query.filter_by(id=postid).first()
+                #db.session.delete(dcpost)
+                #db.session.commit()
+                
         if postform.validate_on_submit():
             if postform.chname_button.data: 
                 name_change = True
@@ -53,15 +60,7 @@ def main(user):
                 db.session.add(new_post)
                 db.session.commit()
                 
-            
-            if postform.submit2.data: 
-                return str(postform.post.data) + "test"
-                #postid = postform.post.data
-                #dcpost = Post.query.filter_by(id=postid).first()
-                #db.session.delete(dcpost)
-                #db.session.commit()
-                
-            if postform.yesdel.data: #######
+            if postform.yesdel.data: 
                 duser = User.query.filter_by(name=user).first()
                 if Post.query.filter_by(user = duser).first():
                     dpost = Post.query.filter_by(user = duser).all()
