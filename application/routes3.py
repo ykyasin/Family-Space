@@ -1,6 +1,6 @@
 from application import app, db
 from application.models import User, Post
-from application.forms import UserForm, PostForm, Login, AddUser, ChNameForm
+from application.forms import UserForm, PostForm, Login, AddUser
 from flask import Flask, render_template, request, redirect, url_for
 
 @app.route('/')
@@ -12,7 +12,6 @@ def home():
 @app.route('/main/<user>', methods = ['GET','POST'])
 def main(user):
     postform = PostForm()
-    chnameform = ChNameForm()
     name_change = False
     delete_account = False
     post_db = Post.query.order_by(Post.id).all()
@@ -29,6 +28,17 @@ def main(user):
 
     if request.method == 'POST':
         if postform.validate_on_submit():
+            if postform.chname_button.data: 
+                name_change = True
+                return render_template('index.html', postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+
+            if postform.submit4.data:
+                newname = postform.chname.data
+                olduser = User.query.filter_by(name=user).first()
+                olduser.name = newname
+                db.session.commit()
+                user = newname
+                name_change_session = False
 
             if postform.submit3.data:
                 delete_account = True
@@ -69,22 +79,14 @@ def main(user):
         if postform.errors: 
             return str(postform.errors)
 
-
-        if chnameform.validate_on_submit:
-            if chnameform.chname_button.data: 
-                name_change = True
-                return render_template('index.html', postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
-
-            if chnameform.submit.data:
-                newname = postform.chname.data
-                olduser = User.query.filter_by(name=user).first()
-                olduser.name = newname
-                db.session.commit()
-                user = newname
-                name_change_session = False
-        if chnameform.errors: 
-            return str(chnameform.errors)
-
+    """ post_db = Post.query.order_by(Post.id).all()
+    posts = []
+    posts_id = []
+    users = []
+    for i in range(len(post_db)):
+        posts.append(post_db[i].detail)
+        posts_id.append(post_db[i].id)
+        users.append(post_db[i].user.name) """
     return render_template('index.html', postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
 @app.route('/login', methods = ['GET','POST'])
