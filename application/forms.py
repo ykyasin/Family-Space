@@ -35,7 +35,7 @@ class PostForm(FlaskForm):
         Length(max=120, message="Must be less than 120 characters"),
         Optional()
     ])
-    post = HiddenField()
+    postid = HiddenField()
     test = StringField('testing')
     submit = SubmitField('Post')
     submit2 = SubmitField('Delete')

@@ -75,7 +75,7 @@ def main(user):
                 #db.session.delete(dcpost)
                 #db.session.commit()
                 #return redirect(url_for('main', user=user))
-                return str(postform.test.data) + "ID is" + str(postform.post.data)
+                return str(postform.test.data) + "ID is" + str(postform.postid.data)
             
             return redirect(url_for('main', user=user))
         if postform.errors: 
