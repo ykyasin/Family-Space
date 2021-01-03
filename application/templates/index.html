@@ -58,20 +58,18 @@
 <div class="row">
     <div class="col-sm-8">
         <br>
-    
-        ##
         <form action="" method="POST">
-            {{postform.hidden_tag() }}
-            {% for post_id, post in itertools.izip(posts_id, posts) %}
-                <p class="hmm"> {{post_id}} {{users[posts.index(post)]}} says: <b> {{post}} </b> <span style="font-size: 0.875em">[{{post_time[posts.index(post)].strftime("%X")}}, {{post_time[posts.index(post)].strftime("%x")}}]</span>  </p>
-                {% if users[posts.index(post)] == user %}
+        {{postform.hidden_tag() }}
+        {% for post in posts %}
+            <p class="hmm"> {{posts_id[posts.index(post)]}} {{users[posts.index(post)]}} says: <b> {{post}} </b> <span style="font-size: 0.875em">[{{post_time[posts.index(post)].strftime("%X")}}, {{post_time[posts.index(post)].strftime("%x")}}]</span>  </p>
+            {% if users[posts.index(post)] == user and post == "hello"%}
                     {{postform.post(value=posts_id[posts.index(post)])}}
                     {{postform.submit2}}
-                {% endif %}
-                <br>
-            {% endfor %}
-            </form>
-    </div>  
+            {% endif %}
+            <br>
+        {% endfor %}
+        </form>
+    </div>
 </div>
     <!-- <br>
     {% if name_change == False %}
