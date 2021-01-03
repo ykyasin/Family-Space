@@ -22,7 +22,7 @@ class UserForm(FlaskForm):
         taken_users = User.query.all()
         for taken_user in taken_users:
             if name.data.lower() == taken_user.name.lower(): 
-                raise ValidationError("Invalid username, please choose another")
+                raise ValidationError("Name already taken, please choose another")
         
 
 class PostForm(FlaskForm):
