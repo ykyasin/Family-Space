@@ -21,24 +21,29 @@
     <div class="col-sm-8"></div>
         {% if name_change == False %}
             <form action="" method="POST">
+                {{postform.hidden_tag() }}
                 {{postform.chname_button}}
             </form>
         {% else %}
             <form action="" method="POST">
+                {{postform.hidden_tag() }}
                 {{postform.chname.label}} {{postform.chname}}  
                 {{postform.submit4}}<br>
             </form>
         {% endif %}
         {% if delete_account == False %}
             <form action="" method="POST">
+                {{postform.hidden_tag() }}
                 {{postform.submit3}}
             </form>
         {% else %}
             <form action="" method="POST">
+                {{postform.hidden_tag() }}
                 Are you sure? {{postform.yesdel}}  {{postform.nodel}} 
             </form>
         {% endif %}
         <form action="" method="POST">
+            {{postform.hidden_tag() }}
             {{postform.submit5}}
         </form>
     </div> 
@@ -46,6 +51,7 @@
 <div class="row">
     <br>
     <form action="" method="POST">
+    {{postform.hidden_tag() }}
     {% for post in posts %}
         <p class="hmm"> {{users[posts.index(post)]}} says: {{post}}  [{{post_time[posts.index(post)].strftime("%X")}}, {{post_time[posts.index(post)].strftime("%x")}}] </p>
         {% if users[posts.index(post)] == user %}
