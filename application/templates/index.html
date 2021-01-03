@@ -64,7 +64,6 @@
                 <p class="hmm"> {{posts_id[posts.index(post)]}} {{users[posts.index(post)]}} says: <b> {{post}} </b> <span style="font-size: 0.875em">[{{post_time[posts.index(post)].strftime("%X")}}, {{post_time[posts.index(post)].strftime("%x")}}]</span>  </p>
                 {% if users[posts.index(post)] == user%}
                         {{postform.postid(value=posts_id[posts.index(post)])}}
-                        {{postform.test}}
                         {{postform.submit2}}
                 {% endif %}
                 <br>
