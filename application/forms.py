@@ -38,11 +38,19 @@ class PostForm(FlaskForm):
     nodel = SubmitField('No')
     chname_button = SubmitField('Change account name')
     chname = StringField('Input name', validators=[
-        DataRequired(),
         Length(min=2, max=20)
     ])
     submit4 = SubmitField('Change')
     submit5 = SubmitField('Logout')
+
+    def validate_chname(self, name):
+        taken_users = User.query.all()
+        name = name.data.lower()
+        for taken_user in taken_users:
+            if name.islower(): 
+                raise ValidationError("Not valid")
+            elif name == taken_user.name.lower(): 
+                raise ValidationError("Name already taken, please choose another")
     
 
 class AddUser(FlaskForm):
