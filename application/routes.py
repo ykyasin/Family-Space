@@ -46,7 +46,7 @@ def main(user):
         if postform.submit5.data:
             return redirect(url_for('login'))
 
-        if postform.submit.data:
+        if postform.submit.data and postform.validate_on_submit():
             post = postform.detail.data
             new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
             #User.query.filter_by(name=user).first()
