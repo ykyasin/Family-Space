@@ -27,7 +27,7 @@ class UserForm(FlaskForm):
 
 class PostForm(FlaskForm):
     detail = StringField('How you feeling?', validators=[
-        Length(min=5, max=180, message="not right"),
+        Length(min=1, max=180, message="Must input 1 to 180 characters"),
         Optional(strip_whitespace=True)
     ])
     post = HiddenField()
