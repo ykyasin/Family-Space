@@ -72,7 +72,7 @@ def main(user):
 
             if postform.submit2.data: 
                 postid = postform.postid.data
-                return str(postid) + str(posts) + str(posts_id) 
+                return str(postid) + str(posts) + str(posts_id) +str(users)
                 #dcpost = Post.query.filter_by(id=postid).first()
                 #db.session.delete(dcpost)
                 #db.session.commit()
