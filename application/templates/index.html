@@ -59,7 +59,7 @@
     <div class="col-sm-8">
         <br>
         <form action="" method="POST">
-        {{postform.hidden_tag() }}
+            {{ postform.csrf_token() }}
         {% for post in posts %}
             <p class="hmm"> {{posts_id[posts.index(post)]}} {{users[posts.index(post)]}} says: <b> {{post}} </b> <span style="font-size: 0.875em">[{{post_time[posts.index(post)].strftime("%X")}}, {{post_time[posts.index(post)].strftime("%x")}}]</span>  </p>
             {% if users[posts.index(post)] == user%}
