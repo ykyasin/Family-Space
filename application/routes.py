@@ -28,13 +28,6 @@ def main(user):
 
 
     if request.method == 'POST':
-        if postform.submit2.data: 
-                #postid = postform.post.data
-                #dcpost = Post.query.filter_by(id=postid).first()
-                #db.session.delete(dcpost)
-                #db.session.commit()
-                #return redirect(url_for('main', user=user))
-                return str(postform.test.data) + "ID is" + str(postform.post.data)
 
         if postform.validate_on_submit():
             if postform.chname_button.data: 
@@ -75,6 +68,14 @@ def main(user):
             
             if postform.nodel.data:
                 return redirect(url_for('main', user=user))
+
+            if postform.submit2.data: 
+                #postid = postform.post.data
+                #dcpost = Post.query.filter_by(id=postid).first()
+                #db.session.delete(dcpost)
+                #db.session.commit()
+                #return redirect(url_for('main', user=user))
+                return str(postform.test.data) + "ID is" + str(postform.post.data)
             
             return redirect(url_for('main', user=user))
         if postform.errors: 
