@@ -20,8 +20,13 @@ class UserForm(FlaskForm):
 
     def validate_name(self, name):
         taken_users = User.query.all()
+        name = name.data.lower()
+        if not name.islower(): 
+            raise ValidationError("Not valid")
+        if len(name) < 2 or len(name) > 20:
+                raise ValidationError("Name has to be between 2 and 20 characters")
         for taken_user in taken_users:
-            if name.data.lower() == taken_user.name.lower(): 
+            if name == taken_user.name.lower(): 
                 raise ValidationError("Name already taken, please choose another")
         
 
