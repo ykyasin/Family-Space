@@ -14,7 +14,7 @@
     <br>
 {% endif %}
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-6">
         <h4> Add New User </h4> 
         <form action="" method="POST">
             {{formuser.hidden_tag()}}
@@ -22,12 +22,15 @@
             {{formuser.submit}}<br>
         </form>
     </div>  
+    <div class="col-sm-6"> 
+        {% if formuser.name.errors %}
+        <div class='error'>
+            {% for error in formuser.name.errors %}
+                <span style="color:red">{{ error }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
 </div>
-{% if formuser.name.errors %}
-<div class='error'>
-    {% for error in formuser.name.errors %}
-        <span>{{ error }}</span>
-    {% endfor %}
-</div>
-{% endif %}
+
 {% endblock body %}
