@@ -13,6 +13,8 @@ def home():
 def main(user):
     postform = PostForm()
     name_change = True
+    if postform.chname.errors:
+        name_change = False
     delete_account = False
     post_db = Post.query.order_by(Post.id).all()
     posts = []
