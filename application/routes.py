@@ -72,10 +72,11 @@ def main(user):
 
             if postform.submit2.data: 
                 postid = postform.postid.data
-                dcpost = Post.query.filter_by(id=postid).first()
-                db.session.delete(dcpost)
-                db.session.commit()
-                return redirect(url_for('main', user=user))
+                return str(postid) + str(posts) + str(posts_id) 
+                #dcpost = Post.query.filter_by(id=postid).first()
+                #db.session.delete(dcpost)
+                #db.session.commit()
+                #return redirect(url_for('main', user=user))
             
             return redirect(url_for('main', user=user))
         if postform.errors: 
