@@ -27,7 +27,7 @@ def main(user):
 
 
     if request.method == 'POST':
-        if postform.validate():
+        if postform.validate_on_submit():
             if postform.chname_button.data: 
                 name_change = True
                 return render_template('index.html', postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
