@@ -34,7 +34,7 @@ def main(user):
 
             if postform.submit4.data:
                 if postform.chname.errors:
-                    break
+                    pass
                 else:
                     newname = postform.chname.data
                     olduser = User.query.filter_by(name=user).first()
