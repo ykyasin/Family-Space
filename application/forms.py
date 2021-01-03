@@ -27,7 +27,7 @@ class UserForm(FlaskForm):
 
 class PostForm(FlaskForm):
     detail = StringField('How you feeling?', validators=[
-        InputRequired(),
+        DataRequired(),
         Length(min=5, max=180, message="not right")
     ])
     post = HiddenField()
@@ -38,7 +38,7 @@ class PostForm(FlaskForm):
     nodel = SubmitField('No')
     chname_button = SubmitField('Change account name')
     chname = StringField('Input name', validators=[
-        InputRequired(),
+        DataRequired(),
         Length(min=2, max=20)
     ])
     submit4 = SubmitField('Change')
