@@ -29,7 +29,7 @@
                 {{postform.hidden_tag() }}
                 {{postform.chname.label}} {{postform.chname}}  
                 {{postform.submit4}}
-                {% if postform.detail.errors %}
+                {% if postform.chname.errors %}
                 <div class='error'>
                     {% for error in postform.chname.errors %}
                         <span style="color:red">{{ error }}</span>
