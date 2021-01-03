@@ -79,7 +79,7 @@ def main(user):
             
             return redirect(url_for('main', user=user))
         else: 
-             return redirect(url_for('main', user=user))
+             return str(postform.errors)
 
     """ post_db = Post.query.order_by(Post.id).all()
     posts = []
