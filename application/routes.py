@@ -34,7 +34,7 @@ def main(user):
             delete_account = True
             return render_template('index.html', delaccform=delaccform, chnameform=chnameform, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
         
-        if delaccform.yes_del.data:
+        if delaccform.yes_del:
            return "yes"
         
         if delaccform.no_del.data:
