@@ -34,7 +34,7 @@ def main(user):
 
             if postform.submit4.data:
                 if postform.chname.errors:
-                    pass
+                    return render_template('index.html', postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
                 else:
                     newname = postform.chname.data
                     olduser = User.query.filter_by(name=user).first()
