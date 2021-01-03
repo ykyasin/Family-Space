@@ -103,7 +103,7 @@ def login(): #Add users
             db.session.commit()
             return redirect(url_for('login'))
         elif formuser.name.data:
-            redirect(url_for('login'))
+            return redirect(url_for('login'))
         else:
             user = form.users.data
             return redirect(url_for('main', user=user.name))
