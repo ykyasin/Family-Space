@@ -12,9 +12,9 @@ def home():
 @app.route('/main/<user>', methods = ['GET','POST'])
 def main(user):
     postform = PostForm()
-    name_change = True
+    name_change = False
     if postform.chname.errors:
-        name_change = False
+        name_change = True
     delete_account = False
     post_db = Post.query.order_by(Post.id).all()
     posts = []
