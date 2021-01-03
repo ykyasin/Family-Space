@@ -55,7 +55,7 @@ def main(user):
                 
             
             if postform.submit2.data: 
-                return str(postform.post.data)
+                return str(postform.post.data) + "test"
                 #postid = postform.post.data
                 #dcpost = Post.query.filter_by(id=postid).first()
                 #db.session.delete(dcpost)
