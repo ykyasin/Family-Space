@@ -42,7 +42,9 @@ class PostForm(FlaskForm):
     yesdel = SubmitField('Yes')
     nodel = SubmitField('No')
     chname_button = SubmitField('Change account name')
-    chname = StringField('Input name')
+    chname = StringField('Input name', validators=[
+        Optional()
+    ])
     submit4 = SubmitField('Change')
     submit5 = SubmitField('Logout')
 
