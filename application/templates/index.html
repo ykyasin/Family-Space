@@ -29,16 +29,16 @@
                 {{postform.hidden_tag() }}
                 {{postform.chname.label}} {{postform.chname}}  
                 {{postform.submit4}}
-                {% if postform.chname.errors %}
-                {% endif %}
-                <div class='error'>
-                    {% for error in postform.chname.errors %}
-                        <span style="color:red">{{ error }}</span>
-                    {% endfor %}
-                </div>
-                <br>
             </form>
         {% endif %}
+        {% if postform.chname.errors %}
+            <div class='error'>
+                {% for error in postform.chname.errors %}
+                    <span style="color:red">{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %} 
+        <br>
         {% if delete_account == False %}
             <form action="" method="POST">
                 {{postform.hidden_tag() }}
