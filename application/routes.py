@@ -1,6 +1,6 @@
 from application import app, db
 from application.models import User, Post
-from application.forms import UserForm, PostForm, Login, AddUser, ChNameForm
+from application.forms import UserForm, PostForm, Login, AddUser, ChNameForm, DelAccForm
 from flask import Flask, render_template, request, redirect, url_for
 
 @app.route('/')
@@ -13,6 +13,7 @@ def home():
 def main(user):
     postform = PostForm()
     chnameform = ChNameForm()
+    delaccform = DelAccForm()
     name_change = False
     delete_account = False
     post_db = Post.query.order_by(Post.id).all()
@@ -28,11 +29,26 @@ def main(user):
 
 
     if request.method == 'POST':
-        if postform.validate_on_submit():
 
-            if postform.submit3.data:
-                delete_account = True
-                return render_template('index.html', postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+        if delaccform.delacc_button:
+            delete_account = True
+                return render_template('index.html', delaccform=delaccform, chnameform=chnameform, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+        
+        if delaccform.yes_del:
+            duser = User.query.filter_by(name=user).first()
+                if Post.query.filter_by(user = duser).first():
+                    dpost = Post.query.filter_by(user = duser).all()
+                    for post in range(len(dpost)):
+                        db.session.delete(dpost[post])
+                        
+                db.session.delete(duser)
+                db.session.commit()
+                return redirect(url_for('login'))
+        
+        if delaccform.no_del:
+            return redirect(url_for('main', user=user))
+
+        if postform.validate_on_submit():
 
             if postform.submit5.data:
                 return redirect(url_for('login'))
@@ -50,20 +66,6 @@ def main(user):
                 dcpost = Post.query.filter_by(id=postid).first()
                 db.session.delete(dcpost)
                 db.session.commit()
-                
-            if postform.yesdel.data: #######
-                duser = User.query.filter_by(name=user).first()
-                if Post.query.filter_by(user = duser).first():
-                    dpost = Post.query.filter_by(user = duser).all()
-                    for post in range(len(dpost)):
-                        db.session.delete(dpost[post])
-                        
-                db.session.delete(duser)
-                db.session.commit()
-                return redirect(url_for('login'))
-            
-            if postform.nodel.data:
-                return redirect(url_for('main', user=user))
             
             return redirect(url_for('main', user=user))
 
@@ -71,7 +73,7 @@ def main(user):
         if chnameform.validate_on_submit:
             if chnameform.chname_button.data: 
                 name_change = True
-                return render_template('index.html',chnameform=chnameform, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+                return render_template('index.html', delaccform=delaccform, chnameform=chnameform, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
             if chnameform.submit.data:
                 newname = postform.chname.data
@@ -83,7 +85,7 @@ def main(user):
         if chnameform.errors: 
             return str(chnameform.errors)
 
-    return render_template('index.html',chnameform=chnameform, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+    return render_template('index.html', delaccform=delaccform, chnameform=chnameform, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
 @app.route('/login', methods = ['GET','POST'])
 def login(): #Add users

@@ -36,9 +36,9 @@ class PostForm(FlaskForm):
     submit5 = SubmitField('Logout')
 
 class DelAccForm(FlaskForm): 
-    submit3 = SubmitField('Delete your account')
-    yesdel = SubmitField('Yes')
-    nodel = SubmitField('No')
+    delacc_button = SubmitField('Delete your account')
+    yes_del = SubmitField('Yes')
+    no_del = SubmitField('No')
 
 
 
