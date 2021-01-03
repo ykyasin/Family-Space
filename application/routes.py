@@ -21,8 +21,6 @@ def main(user):
     posts_id = []
     post_time = []
     users = []
-    itera = [] 
-
     for i in range(range_posts):
         posts.append(post_db[i].detail)
         posts_id.append(post_db[i].id)
@@ -35,7 +33,7 @@ def main(user):
         if postform.validate_on_submit():
             if postform.chname_button.data: 
                 name_change = True
-                return render_template('index.html', itera=itera, range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+                return render_template('index.html', range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
             if postform.submit4.data:
                 newname = postform.chname.data
@@ -47,7 +45,7 @@ def main(user):
 
             if postform.submit3.data:
                 delete_account = True
-                return render_template('index.html', itera=itera, range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+                return render_template('index.html', range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
             if postform.submit5.data:
                 return redirect(url_for('login'))
@@ -82,9 +80,9 @@ def main(user):
             
             return redirect(url_for('main', user=user))
         if postform.errors: 
-            return render_template('index.html', itera=itera, range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+            return render_template('index.html', range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
-    return render_template('index.html', itera=itera, range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+    return render_template('index.html', range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
 @app.route('/login', methods = ['GET','POST'])
 def login(): #Add users
