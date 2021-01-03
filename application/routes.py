@@ -32,7 +32,7 @@ def main(user):
 
         if delaccform.delacc_button:
             delete_account = True
-                return render_template('index.html', delaccform=delaccform, chnameform=chnameform, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+            return render_template('index.html', delaccform=delaccform, chnameform=chnameform, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
         
         if delaccform.yes_del:
             duser = User.query.filter_by(name=user).first()
