@@ -11,10 +11,9 @@ def home():
 
 @app.route('/main/<user>', methods = ['GET','POST'])
 def main(user):
-    try: 
-        if postform.chname.errors: 
-            name_change = True
-    except NameError: 
+    if postform.chname.errors: 
+        name_change = True
+    else: 
         name_change = False
 
     postform = PostForm()
