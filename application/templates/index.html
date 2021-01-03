@@ -61,7 +61,7 @@
         <form action="" method="POST">
             {{ postform.csrf_token() }}
             {% for i in range(range_posts) %}
-                <p class="hmm"> {{posts_id[i]}} {{users[i]}} says: <b> {{posts[i]}} </b> <span style="font-size: 0.875em">[{{post_time[posts[i]].strftime("%X")}}, {{post_time[posts[i]].strftime("%x")}}]</span>  </p>
+                <p class="hmm"> {{posts_id[i]}} {{users[i]}} says: <b> {{posts[i]}} </b> <span style="font-size: 0.875em">[{{post_time[i].strftime("%X")}}, {{post_time[i].strftime("%x")}}]</span>  </p>
                 {% if users[i] == user%}
                         {{postform.postid(value=posts_id[i])}}
                         {{postform.submit2}}
@@ -71,25 +71,4 @@
         </form>
     </div>
 </div>
-    <!-- <br>
-    {% if name_change == False %}
-        <form action="" method="POST">
-            {{postform.chname_button}}
-        </form>
-    {% else %}
-        <form action="" method="POST">
-            {{postform.chname.label}} {{postform.chname}}  
-            {{postform.submit4}}<br>
-        </form>
-    {% endif %}
-    <br>
-    {% if delete_account == False %}
-        <form action="" method="POST">
-            {{postform.submit3}}
-        </form>
-    {% else %}
-        <form action="" method="POST">
-            Are you sure? {{postform.yesdel}}  {{postform.nodel}} 
-        </form>
-    {% endif %} -->
 {% endblock body %}
