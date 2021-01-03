@@ -96,7 +96,7 @@ def login(): #Add users
         are_users = True
 
     if request.method == 'POST':
-        if formuser.name.data:
+        if formuser.name.data and formuser.validate_on_submit():
             name = formuser.name.data
             newuser = User(name=name)
             db.session.add(newuser)
