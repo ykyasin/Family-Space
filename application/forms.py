@@ -27,6 +27,7 @@ class UserForm(FlaskForm):
 
 class PostForm(FlaskForm):
     detail = StringField('How you feeling?', validators=[
+        Length(min=1, max=180, message="not right"),
         Optional(strip_whitespace=True)
     ])
     post = HiddenField()
@@ -52,13 +53,6 @@ class PostForm(FlaskForm):
         for taken_user in taken_users:
             if chname == taken_user.name.lower(): 
                 raise ValidationError("Name already taken, please choose another")
-    
-    def validate_detail(self, detail):
-        detail = detail.data
-        if len(detail) == 0:
-            raise ValidationError("Must input data")
-        elif len(detail) > 180:
-            raise ValidationError("Must be less than 180 characters")
     
 
 class AddUser(FlaskForm):
