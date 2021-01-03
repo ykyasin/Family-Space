@@ -108,7 +108,7 @@ def login(): #Add users
             user = form.users.data
             return redirect(url_for('main', user=user.name))
 
-    return render_template('login.html', form = form, f ormuser = formuser, are_users=are_users)
+    return render_template('login.html', form = form, formuser = formuser, are_users=are_users)
 
 
 
