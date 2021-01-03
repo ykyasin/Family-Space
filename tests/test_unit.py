@@ -79,14 +79,6 @@ class TestCreate(TestBase):
         self.assertIn(b'Another Post to test', response.data)
 
 
-    def test_invalid_create_post(self):
-        response = self.client.post(url_for('main',user=User.query.first().name),
-            data=dict(submit = True, detail=''),
-            follow_redirects = True
-        )
-
-        self.assertIn(b"Please fill out this field", response.data)
-
 class TestUpdate(TestBase):
     def test_update_user(self):
         response = self.client.post(url_for('main',user=User.query.first().name),
