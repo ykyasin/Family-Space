@@ -27,57 +27,54 @@ def main(user):
 
 
     if request.method == 'POST':
-        if postform.validate_on_submit():
-            if postform.chname_button.data: 
-                name_change = True
-                return render_template('index.html', postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+        if postform.chname_button.data: 
+            name_change = True
+            return render_template('index.html', postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
-            if postform.submit4.data:
-                newname = postform.chname.data
-                olduser = User.query.filter_by(name=user).first()
-                olduser.name = newname
-                db.session.commit()
-                user = newname
-                name_change_session = False
+        if postform.submit4.data:
+            newname = postform.chname.data
+            olduser = User.query.filter_by(name=user).first()
+            olduser.name = newname
+            db.session.commit()
+            user = newname
+            name_change_session = False
 
-            if postform.submit3.data:
-                delete_account = True
-                return render_template('index.html', postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+        if postform.submit3.data:
+            delete_account = True
+            return render_template('index.html', postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
-            if postform.submit5.data:
-                return redirect(url_for('login'))
+        if postform.submit5.data:
+            return redirect(url_for('login'))
 
-            if postform.submit.data:
-                post = postform.detail.data
-                new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
-                #User.query.filter_by(name=user).first()
-                db.session.add(new_post)
-                db.session.commit()
-                
+        if postform.submit.data:
+            post = postform.detail.data
+            new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
+            #User.query.filter_by(name=user).first()
+            db.session.add(new_post)
+            db.session.commit()
             
-            if postform.submit2.data: 
-                postid = postform.post.data
-                dcpost = Post.query.filter_by(id=postid).first()
-                db.session.delete(dcpost)
-                db.session.commit()
-                
-            if postform.yesdel.data: #######
-                duser = User.query.filter_by(name=user).first()
-                if Post.query.filter_by(user = duser).first():
-                    dpost = Post.query.filter_by(user = duser).all()
-                    for post in range(len(dpost)):
-                        db.session.delete(dpost[post])
-                        
-                db.session.delete(duser)
-                db.session.commit()
-                return redirect(url_for('login'))
+        
+        if postform.submit2.data: 
+            postid = postform.post.data
+            dcpost = Post.query.filter_by(id=postid).first()
+            db.session.delete(dcpost)
+            db.session.commit()
             
-            if postform.nodel.data:
-                return redirect(url_for('main', user=user))
-            
+        if postform.yesdel.data: #######
+            duser = User.query.filter_by(name=user).first()
+            if Post.query.filter_by(user = duser).first():
+                dpost = Post.query.filter_by(user = duser).all()
+                for post in range(len(dpost)):
+                    db.session.delete(dpost[post])
+                    
+            db.session.delete(duser)
+            db.session.commit()
+            return redirect(url_for('login'))
+        
+        if postform.nodel.data:
             return redirect(url_for('main', user=user))
-        else: 
-            return redirect(url_for('main', user=user))
+        
+        return redirect(url_for('main', user=user))
 
     """ post_db = Post.query.order_by(Post.id).all()
     posts = []
