@@ -33,11 +33,11 @@
         {% endif %}
         {% if delete_account == False %}
             <form action="" method="POST">
-                {{postform.submit3}}
+                {{delaccform.delacc_button}}
             </form>
         {% else %}
             <form action="" method="POST">
-                Are you sure? {{postform.yesdel}}  {{postform.nodel}} 
+                Are you sure? {{delaccform.yes_del:}}  {{delaccform.no_del:}} 
             </form>
         {% endif %}
         <form action="" method="POST">

@@ -33,10 +33,13 @@ class PostForm(FlaskForm):
     post = HiddenField()
     submit = SubmitField('Post')
     submit2 = SubmitField('Delete')
+    submit5 = SubmitField('Logout')
+
+class DelAccForm(FlaskForm): 
     submit3 = SubmitField('Delete your account')
     yesdel = SubmitField('Yes')
     nodel = SubmitField('No')
-    submit5 = SubmitField('Logout')
+
 
 
 class ChNameForm(FlaskForm):
