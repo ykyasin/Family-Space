@@ -47,6 +47,8 @@ class PostForm(FlaskForm):
         for taken_user in taken_users:
             if name.islower(): 
                 raise ValidationError("Not valid")
+            elif len(name) < 2 or len(name) > 20:
+                raise ValidationError("Name has to be between 2 and 20 characters")
             elif name == taken_user.name.lower(): 
                 raise ValidationError("Name already taken, please choose another")
     
