@@ -21,8 +21,8 @@ class UserForm(FlaskForm):
     def validate_name(self, name):
         taken_users = User.query.all()
         name = name.data.lower()
-        if not name.islower(): 
-            raise ValidationError("Not valid")
+        if not name.isalpha(): 
+            raise ValidationError("Must only contain letters")
         if len(name) < 2 or len(name) > 20:
                 raise ValidationError("Name has to be between 2 and 20 characters")
         for taken_user in taken_users:
@@ -51,8 +51,8 @@ class PostForm(FlaskForm):
     def validate_chname(self, chname):
         taken_users = User.query.all()
         chname = chname.data.lower()
-        if not chname.islower(): 
-            raise ValidationError("Not valid")
+        if not chname.isalpha(): 
+            raise ValidationError("Must only contain letters")
         if len(chname) < 2 or len(chname) > 20:
                 raise ValidationError("Name has to be between 2 and 20 characters")
         for taken_user in taken_users:
