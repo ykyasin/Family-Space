@@ -66,8 +66,8 @@ def main(user):
                 return redirect(url_for('main', user=user))
             
             return redirect(url_for('main', user=user))
-        if postform.errors: 
-            return str(postform.errors)
+"""         if postform.errors: 
+            return str(postform.errors) """
 
 
         if chnameform.validate_on_submit:

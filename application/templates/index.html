@@ -21,10 +21,12 @@
     <div class="col-sm-8"></div>
         {% if name_change == False %}
             <form action="" method="POST">
+                {{chnameform..hidden_tag()}}
                 {{chnameform.chname_button}}
             </form>
         {% else %}
             <form action="" method="POST">
+                {{chnameform..hidden_tag()}}
                 {{chnameform.chname.label}} {{chnameform.chname}}  
                 {{chnameform.submit4}}<br>
             </form>
