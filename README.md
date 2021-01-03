@@ -32,3 +32,9 @@ Originally, I wanted to add more complexity to the project by integrating a many
 ***Image here***
 
 ![new_erd_vector](https://user-images.githubusercontent.com/73299366/103468965-b9859e00-4d56-11eb-836d-fe1f62ebc66b.png)
+
+## Trello Board
+
+The trello board I created using trello.com is shown below. It shows all the user stories, backlog and all tasks either in in-progress , testing or complete.
+
+![Trello](https://user-images.githubusercontent.com/73299366/103469160-16825380-4d59-11eb-8e5a-f97d27d46c4a.JPG)
