@@ -53,6 +53,7 @@ class PostForm(FlaskForm):
         for taken_user in taken_users:
             if chname == taken_user.name.lower(): 
                 raise ValidationError("Name already taken, please choose another")
+
     
 
 class AddUser(FlaskForm):
