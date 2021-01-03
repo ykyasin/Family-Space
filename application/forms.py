@@ -18,6 +18,13 @@ class UserForm(FlaskForm):
     ])
     submit = SubmitField('Add User')
 
+    def validate_name(self, name):
+        taken_users = User.query.all()
+        for taken_user in taken_users:
+            if name.data.lower() == taken_user.name.lower(): 
+                raise ValidationError("Invalid username, please choose another")
+        
+
 class PostForm(FlaskForm):
     detail = StringField('How you feeling?', validators=[
         InputRequired(),
