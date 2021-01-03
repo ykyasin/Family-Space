@@ -54,6 +54,7 @@ class PostForm(FlaskForm):
                 raise ValidationError("Name already taken, please choose another")
     
     def validate_detail(self, detail):
+        detail = detail.data
         if len(detail) == 0:
             raise ValidationError("Must input data")
         elif len(detail) > 180:
