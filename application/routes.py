@@ -28,12 +28,12 @@ def main(user):
 
     if request.method == 'POST':
         if postform.submit2.data: 
-                return str(postform.post.data) + "test"
-                #postid = postform.post.data
-                #dcpost = Post.query.filter_by(id=postid).first()
-                #db.session.delete(dcpost)
-                #db.session.commit()
-                
+                postid = postform.post.data
+                dcpost = Post.query.filter_by(id=postid).first()
+                db.session.delete(dcpost)
+                db.session.commit()
+                return redirect(url_for('main', user=user))
+
         if postform.validate_on_submit():
             if postform.chname_button.data: 
                 name_change = True
