@@ -46,6 +46,7 @@ def main(user):
             return redirect(url_for('login'))
         
         if delaccform.no_del:
+            delete_account = False
             return redirect(url_for('main', user=user))
 
         if postform.validate_on_submit():
