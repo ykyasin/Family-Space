@@ -24,10 +24,6 @@
     </div>  
 </div>
 {% if formuser.name.errors %}
-<div class='error'>
-    {% for error in formuser.name.errors %}
-        <span>{{ error }}</span>
-    {% endfor %}
-</div>
+    {{formuser.name.errors[1]}}
 {% endif %}
 {% endblock body %}
