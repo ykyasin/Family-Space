@@ -12,7 +12,7 @@ def home():
 @app.route('/main/<user>', methods = ['GET','POST'])
 def main(user):
     postform = PostForm()
-    name_change = False
+    name_change = True
     delete_account = False
     post_db = Post.query.order_by(Post.id).all()
     posts = []
@@ -33,16 +33,12 @@ def main(user):
                 return render_template('index.html', postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
             if postform.submit4.data:
-                if postform.chname.errors:
-                    name_change = True
-                    return render_template('index.html', postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
-                else:
-                    newname = postform.chname.data
-                    olduser = User.query.filter_by(name=user).first()
-                    olduser.name = newname
-                    db.session.commit()
-                    user = newname
-                    name_change_session = False
+                newname = postform.chname.data
+                olduser = User.query.filter_by(name=user).first()
+                olduser.name = newname
+                db.session.commit()
+                user = newname
+                name_change_session = False
 
             if postform.submit3.data:
                 delete_account = True
