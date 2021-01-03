@@ -24,3 +24,6 @@ I decided to make a family blog website, called Family-Space. The idea behind th
 with each other online. Esentially a social media website just for you and your loved ones. In this web application,
 users will be able to create accounts and create notes (inspiration behind the name notes is the notes stuck magnetically on the fridge).
 Users will also be able to change their account name as well as delete their accounts and notes.  
+
+## ERD
+![new_erd_vector](https://user-images.githubusercontent.com/73299366/103468965-b9859e00-4d56-11eb-836d-fe1f62ebc66b.png)
