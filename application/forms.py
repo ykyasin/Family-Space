@@ -14,14 +14,14 @@ class Login(FlaskForm):
 class UserForm(FlaskForm):
     name = StringField('Input name', validators=[
         InputRequired(),
-        Length(max=30)
+        Length(min=2, max=30)
     ])
     submit = SubmitField('Add User')
 
 class PostForm(FlaskForm):
     detail = StringField('How you feeling?', validators=[
-        InputRequired(message="Try again"),
-        Length(max=180)
+        InputRequired(),
+        Length(min=1, max=180)
     ])
     post = HiddenField()
     submit = SubmitField('Post')
@@ -32,7 +32,7 @@ class PostForm(FlaskForm):
     chname_button = SubmitField('Change account name')
     chname = StringField('Input name', validators=[
         InputRequired(),
-        Length(max=30)
+        Length(min=2, max=30)
     ])
     submit4 = SubmitField('Change')
     submit5 = SubmitField('Logout')
