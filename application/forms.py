@@ -12,12 +12,15 @@ class Login(FlaskForm):
     submit = SubmitField('Login')
 
 class UserForm(FlaskForm):
-    name = StringField('Input name', validators=[DataRequired()])
+    name = StringField('Input name', validators=[
+        InputRequired(),
+        Length(max=30)
+    ])
     submit = SubmitField('Add User')
 
 class PostForm(FlaskForm):
     detail = StringField('How you feeling?', validators=[
-        InputRequired(),
+        InputRequired(message="Try again"),
         Length(max=180)
     ])
     post = HiddenField()
