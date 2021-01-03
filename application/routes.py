@@ -73,7 +73,7 @@ def main(user):
         if chnameform.validate_on_submit:
             if chnameform.chname_button.data: 
                 name_change = True
-                return render_template('index.html', postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+                return render_template('index.html',chnameform=chnameform, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
             if chnameform.submit.data:
                 newname = postform.chname.data
@@ -85,7 +85,7 @@ def main(user):
         if chnameform.errors: 
             return str(chnameform.errors)
 
-    return render_template('index.html', postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+    return render_template('index.html',chnameform=chnameform, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
 @app.route('/login', methods = ['GET','POST'])
 def login(): #Add users
