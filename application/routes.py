@@ -44,7 +44,7 @@ def main(user):
                     user = newname
                     name_change_session = False
                 else: 
-                    message = "Must input data"
+                    message = "Name has to be between 2 and 20 characters"
                     return render_template('index.html', message=message, range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
 
