@@ -31,6 +31,9 @@
                 {{postform.submit4}}
             </form>
         {% endif %}
+        {% if message %}
+            {{message}}
+        {% endif %}
         {% if postform.chname.errors %}
             <div class='error'>
                 {% for error in postform.chname.errors %}
