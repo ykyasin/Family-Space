@@ -101,11 +101,11 @@ class TestUpdate(TestBase):
 class TestDelete(TestBase):
     def test_delete_user(self):
         response = self.client.post(url_for('main',user="Yusuf"),
-            data=dict(delete_account=True, yesdel=True),
+            data=dict(yesdel=True),
             follow_redirects = True
         )
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b"Yusuf", response.data)
+        self.assertNotIn(b"Yusuf", response.data)
 
     def test_delete_post(self):
         response = self.client.post(url_for('main',user="Yusuf"),
@@ -114,6 +114,23 @@ class TestDelete(TestBase):
         )
         self.assertEqual(response.status_code, 200)
         self.assertNotIn(b"Testing the post", response.data)
+
+class TestOthers(TestBase):
+    def test_submit3(self):
+        response = self.client.post(url_for('main',user="Yusuf"),
+            data=dict(submit3=True),
+            follow_redirects = True
+        )
+        self.assertEqual(response.status_code, 200)
+
+    def test_logout(self):
+        response = self.client.post(url_for('main',user="Yusuf"),
+            data=dict(submit5=True),
+            follow_redirects = True
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"Login", response.data)
+
 
        
 

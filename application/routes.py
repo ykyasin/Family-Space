@@ -71,10 +71,6 @@ def main(user):
                     return render_template('index.html', message=message, range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
 
-            if postform.submit3.data:
-                delete_account = True
-                return render_template('index.html', range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
-
             if postform.submit5.data:
                 return redirect(url_for('login'))
 
@@ -83,18 +79,7 @@ def main(user):
                 new_post = Post(detail=post, user = User.query.filter_by(name=user).first())
                 db.session.add(new_post)
                 db.session.commit()
-                
-            if postform.yesdel.data: 
-                duser = User.query.filter_by(name=user).first()
-                if Post.query.filter_by(user = duser).first():
-                    dpost = Post.query.filter_by(user = duser).all()
-                    for post in range(len(dpost)):
-                        db.session.delete(dpost[post])
-                        
-                db.session.delete(duser)
-                db.session.commit()
-                return redirect(url_for('login'))
-            
+                            
             if postform.nodel.data:
                 return redirect(url_for('main', user=user))
 
