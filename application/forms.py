@@ -43,17 +43,14 @@ class PostForm(FlaskForm):
     nodel = SubmitField('No')
     chname_button = SubmitField('Change account name')
     chname = StringField('Input name', validators=[
-        Length(min=2, max=20),
-        Optional()
+        Optional(strip_whitespace=True)
     ])
     submit4 = SubmitField('Change')
     submit5 = SubmitField('Logout')
 
     def validate_chname(self, chname):
         
-        if chname.data == "":
-            raise ValidationError("Name has to be between 2 and 20 characters")
-        else:
+        if chname.data is not None:
             taken_users = User.query.all()
             chname = chname.data.lower()
             if not chname.isalpha(): 
@@ -64,16 +61,7 @@ class PostForm(FlaskForm):
                 if chname == taken_user.name.lower(): 
                     raise ValidationError("Name already taken, please choose another")
 
-class CheckChname: 
-    def __init__(self, message=None):
-        if not message:
-            message = 'checking this'
-        self.message = message
 
-    def __call__(self, form, field):
-        if field.data.lower() == "":
-            raise ValidationError(self.message)
-        
 
 
 class AddUser(FlaskForm):
