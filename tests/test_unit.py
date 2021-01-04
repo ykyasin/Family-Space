@@ -100,19 +100,21 @@ class TestUpdate(TestBase):
 
 class TestDelete(TestBase):
     def test_delete_user(self):
-        response = self.client.post(url_for('main',user='Yusuf'),
-            data=dict(delete_account = True, yesdel = True),
+        response = self.client.post(url_for('main',user="Yusuf"),
+            data=dict(delete_account=True, yesdel=True),
             follow_redirects = True
         )
         self.assertEqual(response.status_code, 200)
-        self.assertNotIn(b"Yusuf", response.data)
+        self.assertIn(b"Yusuf", response.data)
 
     def test_delete_post(self):
-        response = self.client.post(url_for('main',user='Yusuf'),
-            data=dict(submit2 = True, post = 1),
+        response = self.client.post(url_for('main',user="Yusuf"),
+            data=dict(submit2=True, postid='1'),
             follow_redirects = True
         )
         self.assertEqual(response.status_code, 200)
+        self.assertNotIn(b"Testing the post", response.data)
+
        
 
 
