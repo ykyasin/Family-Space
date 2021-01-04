@@ -83,7 +83,7 @@ class TestCreate(TestBase):
 class TestUpdate(TestBase):
     def test_update_user(self):
         response = self.client.post(url_for('main',user="Max"),
-            data=dict(submit4 = True, chname='Max'),
+            data=dict(name_change=True, submit4 = True, chname='Max'),
             follow_redirects = True
         )
         self.assertEqual(response.status_code, 200)
@@ -92,7 +92,7 @@ class TestUpdate(TestBase):
 
     def test_invalid_update_user(self):
         response = self.client.post(url_for('main',user="Yusuf"),
-            data=dict(submit4 = True, chname=''),
+            data=dict(name_change=True, submit4=True, chname='a'),
             follow_redirects = True
         )
         self.assertEqual(response.status_code, 200)
