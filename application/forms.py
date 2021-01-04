@@ -43,6 +43,7 @@ class PostForm(FlaskForm):
     nodel = SubmitField('No')
     chname_button = SubmitField('Change account name')
     chname = StringField('Input name', validators=[
+        Length(min=2, max=20),
         Optional()
     ])
     submit4 = SubmitField('Change')
@@ -62,7 +63,18 @@ class PostForm(FlaskForm):
             for taken_user in taken_users:
                 if chname == taken_user.name.lower(): 
                     raise ValidationError("Name already taken, please choose another")
-    
+
+class CheckChname: 
+    def __init__(self, message=None):
+        if not message:
+            message = 'checking this'
+        self.message = message
+
+    def __call__(self, form, field):
+        if field.data.lower() == "":
+            raise ValidationError(self.message)
+        
+
 
 class AddUser(FlaskForm):
     submit = SubmitField('Add User')
