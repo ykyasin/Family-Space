@@ -52,9 +52,10 @@ class TestViews(TestBase):
         response = self.client.get(url_for('main',user="Yusuf"))
         self.assertEqual(response.status_code, 200)
 
+
 class TestRead(TestBase):
     def test_read_post(self):
-        response = self.client.get(url_for('main',user=User.query.first().name))
+        response = self.client.get(url_for('main',user="Yusuf"))
         self.assertIn(b'Testing the post', response.data)
 
     def test_read_user(self):
@@ -71,7 +72,7 @@ class TestCreate(TestBase):
         self.assertIn(b"John", response.data)
  
     def test_create_post(self):
-        response = self.client.post(url_for('main',user=User.query.first().name),
+        response = self.client.post(url_for('main',user="Yusuf"),
             data=dict(submit = True, detail='Another Post to test'),
             follow_redirects = True
         )
@@ -81,19 +82,21 @@ class TestCreate(TestBase):
 
 class TestUpdate(TestBase):
     def test_update_user(self):
-        response = self.client.post(url_for('main',user=User.query.first().name),
+        response = self.client.post(url_for('main',user="Max"),
             data=dict(submit4 = True, chname='Max'),
             follow_redirects = True
         )
         self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Max', response.data)
         
 
     def test_invalid_update_user(self):
-        response = self.client.post(url_for('main',user=User.query.first().name),
+        response = self.client.post(url_for('main',user="Yusuf"),
             data=dict(submit4 = True, chname=''),
             follow_redirects = True
         )
         self.assertEqual(response.status_code, 200)
+        self.assertIn(b"Name has to be between 2 and 20 characters", response.data)
 
 class TestDelete(TestBase):
     def test_delete_user(self):

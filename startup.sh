@@ -1,6 +1,5 @@
 #!/bin/bash 
 
-
 cd /opt/fs-app
 sudo chown -R fs-app
 sudo python3 -m venv venv
