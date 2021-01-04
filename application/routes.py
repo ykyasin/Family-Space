@@ -13,7 +13,7 @@ def home():
 @app.route('/main/<user>', methods = ['GET','POST'])
 def main(user):
     postform = PostForm()
-    postform.make_optional(chname.password)
+    make_optional(postform.chname)
     name_change = False
     delete_account = False
     post_db = Post.query.order_by(Post.id).all()
