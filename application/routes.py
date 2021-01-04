@@ -29,23 +29,24 @@ def main(user):
 
 
     if request.method == 'POST':
-        if postform.chname_button.data: 
-            name_change = True
-            return render_template('index.html', range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
-
-        if postform.submit4.data:
-            newname = postform.chname.data
-            if newname != "":
-                olduser = User.query.filter_by(name=user).first()
-                olduser.name = newname
-                db.session.commit()
-                user = newname
-                name_change_session = False
-            else: 
-                message = "Name has to be between 2 and 20 characters"
-                return render_template('index.html', message=message, range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
 
         if postform.validate_on_submit():
+            if postform.chname_button.data: 
+                name_change = True
+                return render_template('index.html', range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+
+            if postform.submit4.data:
+                newname = postform.chname.data
+                if newname != "":
+                    olduser = User.query.filter_by(name=user).first()
+                    olduser.name = newname
+                    db.session.commit()
+                    user = newname
+                    name_change_session = False
+                else: 
+                    message = "Name has to be between 2 and 20 characters"
+                    return render_template('index.html', message=message, range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)
+
 
             if postform.submit3.data:
                 delete_account = True
