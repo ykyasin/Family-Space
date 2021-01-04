@@ -14,7 +14,7 @@ def home():
 def main(user):
     postform = PostForm()
     name_change = False
-    delete_account = True
+    delete_account = False
     post_db = Post.query.order_by(Post.id).all()
     range_posts = len(post_db)
     posts = []
@@ -37,12 +37,13 @@ def main(user):
 
             if postform.submit4.data:
                 newname = postform.chname.data
-                newname.strip()
+                newname.strip
                 if newname != "":
                     olduser = User.query.filter_by(name=user).first()
                     olduser.name = newname
                     db.session.commit()
                     user = newname
+
                 else: 
                     message = "Name has to be between 2 and 20 characters"
                     return render_template('index.html', message=message, range_posts=range_posts, postform = postform, posts=posts, user=user, post_time=post_time, users=users, posts_id=posts_id, name_change=name_change, delete_account=delete_account)

@@ -101,7 +101,7 @@ class TestUpdate(TestBase):
 class TestDelete(TestBase):
     def test_delete_user(self):
         response = self.client.post(url_for('main',user='Yusuf'),
-            data=dict(yesdel = True),
+            data=dict(delete_account = True, yesdel = True),
             follow_redirects = True
         )
         self.assertEqual(response.status_code, 200)
