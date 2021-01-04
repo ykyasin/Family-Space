@@ -92,19 +92,20 @@ class TestUpdate(TestBase):
 
     def test_invalid_update_user(self):
         response = self.client.post(url_for('main',user="Yusuf"),
-            data=dict(name_change=True, submit4=True, chname='a'),
+            data=dict(name_change=True, submit4=True, chname=' '),
             follow_redirects = True
         )
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b"Name has to be between 2 and 20 characters", response.data)
+        self.assertIn(b"Must only contain letters", response.data)
 
 class TestDelete(TestBase):
     def test_delete_user(self):
         response = self.client.post(url_for('main',user='Yusuf'),
-            data=dict(yesdel = True),
+            data=dict(delete_account = True, yesdel = True),
             follow_redirects = True
         )
         self.assertEqual(response.status_code, 200)
+        self.assertNotIn(b"Yusuf", response.data)
 
     def test_delete_post(self):
         response = self.client.post(url_for('main',user='Yusuf'),
