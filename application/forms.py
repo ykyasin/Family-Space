@@ -4,9 +4,6 @@ from wtforms_sqlalchemy.fields import QuerySelectField
 from wtforms.validators import DataRequired, Length, ValidationError, InputRequired, Optional
 from application.models import User
 
-def make_optional(field):
-    field.validators.insert(0, Optional())
-
 def  choice_user():
     return User.query
 
