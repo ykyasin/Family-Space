@@ -37,9 +37,10 @@ def main(user):
 
             if postform.submit4.data:
                 newname = postform.chname.data
-                x = None
-                y = type(x)
-                return "the name is:" + str(y) + "after"
+                if newname == "":
+                    return "It is a string"
+                else:
+                    return "It is not"
                 #if newname == "":
                 #    olduser = User.query.filter_by(name=user).first()
                 #    olduser.name = newname
