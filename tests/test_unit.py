@@ -129,7 +129,6 @@ class TestOthers(TestBase):
             follow_redirects = True
         )
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b"Login", response.data)
 
 
        
