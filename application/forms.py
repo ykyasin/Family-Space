@@ -4,6 +4,9 @@ from wtforms_sqlalchemy.fields import QuerySelectField
 from wtforms.validators import DataRequired, Length, ValidationError, InputRequired, Optional
 from application.models import User
 
+def make_optional(field):
+    field.validators.insert(0, Optional())
+
 def  choice_user():
     return User.query
 
@@ -42,9 +45,7 @@ class PostForm(FlaskForm):
     yesdel = SubmitField('Yes')
     nodel = SubmitField('No')
     chname_button = SubmitField('Change account name')
-    chname = StringField('Input name', validators=[
-        Optional(strip_whitespace=True)
-    ])
+    chname = StringField('Input name')
     submit4 = SubmitField('Change')
     submit5 = SubmitField('Logout')
 

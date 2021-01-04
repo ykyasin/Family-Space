@@ -1,6 +1,6 @@
 from application import app, db
 from application.models import User, Post
-from application.forms import UserForm, PostForm, Login, AddUser
+from application.forms import UserForm, PostForm, Login, AddUser, make_optional
 from flask import Flask, render_template, request, redirect, url_for
 import itertools
 
@@ -13,6 +13,7 @@ def home():
 @app.route('/main/<user>', methods = ['GET','POST'])
 def main(user):
     postform = PostForm()
+    postform.make_optional(chname.password)
     name_change = False
     delete_account = False
     post_db = Post.query.order_by(Post.id).all()
