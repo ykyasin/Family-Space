@@ -72,11 +72,10 @@ The image above shows the CI pipeline for this project. Development is started b
 ### Risk Assessment
 The first image below is the original risk assessment made before any serious work on the application had began. The second one shows the final risk assessment, which has a few more entries which I realised whilst working on the project.
 
-Original: 
+Original risk assessment: 
 ![First_Risk](https://user-images.githubusercontent.com/73299366/103595638-d7d4d080-4ef3-11eb-8cb9-75a797be5f0a.JPG)
 
-Final:
-Final risk assessment
+Final risk assessment:
 ![Second_Risk](https://user-images.githubusercontent.com/73299366/103595659-e15e3880-4ef3-11eb-99be-5fcea22be88c.JPG)
 
 ## CRUD Functionality 
