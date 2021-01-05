@@ -118,7 +118,16 @@ The Bash script used to allow for the testing and deployment of the app is show 
 
 
 ## Testing
+### Unit Testing
+The first of testing done on the application is called unit testing. The route functions are tested via inputting specific scenarios and checking to see if they produce expected outputs by using assert. Testing in this manner helps us find out if any function is not working as intended. The unit tests are automatically run in Jenkins if a Git push is made to the repo (as shown in the bash script in the previous section). This will then produce a coverage report detailing coverage percentage, whether the tests were successful and which lines have yet to be tested.  Also, a html document can be made by adding a **_--cov-report html_** command to the line in which the pytest is run. These coverage reports can be seen in the results section below.
+
+### Integration testing
+To perform integration testing, selenium was used. Selenium allowed me to simulate situations in navigating through the websites, i.e. by entering information into fields and clicking buttons. Then asserts are made to see if the response of the testing produces expected results. The integration tests are also run automatically on Jenkins. 
+
+### Test Results
 ![Coverage](https://user-images.githubusercontent.com/73299366/103598058-96472400-4ef9-11eb-8563-0d525e591cf5.JPG)
+
+The above image shows the coverage report for my application. As shown, I have a coverage percentage of 77%, which is not ideal. This is because I was unable to test specific lines due to how the functiions were made. However, it should be noted that with dynamic testing I found that everything worked as they should and that the coverage is not 100% simply because I had trouble coding the tests for the specific lines shown in the missing section in the image. Beyond that, the tests that were done for both unit and integration testing have all passed.
 ![Coverage_html](https://user-images.githubusercontent.com/73299366/103598061-9810e780-4ef9-11eb-97d2-c48969b86672.JPG)
 
 ## Future Improvements
