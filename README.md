@@ -65,9 +65,11 @@ This section will discuss the basic workings of the website. For the login funct
 The two below images show that when a name is added in the name field and the "Add new member" button is clicked, the name will be show in the drop down menu. The way this worked is that once the button is clicked, a new user is generated in the database with the name written in the field, which will subsequently be shown in the dropdown menu due to the name now being in the database.
 
 First the name is written and the "Add new member" button is clicked:
+
 ![login_page_2](https://user-images.githubusercontent.com/73299366/103596066-f5566a00-4ef4-11eb-9d40-ded29d54fc14.JPG)
 
 Then the name now appears in the dropdown menu:
+
 ![login_page_3](https://user-images.githubusercontent.com/73299366/103596073-f8e9f100-4ef4-11eb-947f-4366b60756ce.JPG)
 
 ## Main page
