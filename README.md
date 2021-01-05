@@ -113,6 +113,7 @@ The below image shows the screenshot of my Family-Space project on Jenkins. Usin
 ![jenkins_project](https://user-images.githubusercontent.com/73299366/103598019-862f4480-4ef9-11eb-855f-4aaaaefe3140.JPG)
 
 The Bash script used to allow for the testing and deployment of the app is show in the image below. The main things to be noted in the script is that it firsts installs the Python virtual environment, goes into the virtual environment, and then executes the pytest after installing requirements. After testing is done, the app is automatically run using systemd.
+
 ![Bash_script](https://user-images.githubusercontent.com/73299366/103598040-90514300-4ef9-11eb-868a-d81a9179d9c0.JPG)
 
 
