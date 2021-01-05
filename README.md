@@ -37,7 +37,7 @@ The concepts gained from this project is as follows:
 * Continuous integration with Jenkins
 * Understanding and utilising Cloud concepts using GCP 
 
-
+  
 ### My Project Proposol 
 The project idea that I decided to go with is a family blog website, titled: Family-Space. The idea behind this project is to create an online social hub for familiy members, similar to say a family Whatsapp group chat. In Family-Space, members will be able to create user accounts and make posts for everyone else to see. For the CRUD functionality aspect, a member would be able to create a user which will be saved on the database and can then update their account names if need be, this will update their information on the database. Users will also be able to create posts which will be stored on the database. Each user can also create posts which will be stored on the database and can be viewed by other users on their main page. Each user can also delete any of their posts whenever they wish, which will be wiped off the database. And finally, each user can delete their own accounts, which will subsequently wipe out all their posts.
 
