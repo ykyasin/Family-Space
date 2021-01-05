@@ -6,14 +6,17 @@
    * [My Project Proposol ](#my-project-proposol )
 * [Software Architecture ](#software-architecture )
    * [Database Structure](#database-structure)
-   * [ERD](#ci-pipeline)
-   * [CI Pipeline](#ci-pipeline)
+   * [Entity Relationship Diagram](#entity-relationship-diagram)
+   * [Continuous Integration Pipeline](#continuous-integration-pipeline)
    * [Risk Assessment](#risk-assessment)
 * [CRUD Functionality](#crud-functionality)
    * [Login Page](#login-page)
    * [Main Page](#main-page)
 * [CI Server](#ci-server)
 * [Testing](#testing)
+   * [Unit Testing](#unit-testing)
+   * [Integration Testing](#integration-testing)
+   * [Test Results](#test-results)
 * [Future Improvements](#future-improvements)
 * [Author](#author)
 
@@ -55,7 +58,7 @@ For project tracking, I decided to use Trello board ([click here to access it](h
 
 ![Trello](https://user-images.githubusercontent.com/73299366/103594241-fe910800-4eef-11eb-8c7e-d92fcff145f1.JPG)
 
-### ERD
+### Entity Relationship Diagram
 The original ERD I created featured an additional table on the database (other than users and posts table), which was a comment section. The original ERD is shown below. It features a one to many relationship between User and Post and a one to many between relation between Post and Comment as well as User to Comment. A user can have many posts and make many comments, but each post must have one user and each comment must have one user and one post. 
 
 ![First_erd](https://user-images.githubusercontent.com/73299366/103592952-54fc4780-4eec-11eb-9de1-604bd0230630.JPG)
@@ -64,7 +67,7 @@ The ERD shown below is the one I decided to move on with, which is a simple one 
 
 ![Second_erd](https://user-images.githubusercontent.com/73299366/103592969-5fb6dc80-4eec-11eb-8e33-332d4f90279d.JPG)
 
-### CI Pipeline
+### Continuous Integration Pipeline
 ![Ci_Pipeline](https://user-images.githubusercontent.com/73299366/103595546-a0662400-4ef3-11eb-9a26-09ad8a2478ef.JPG)
 
 The image above shows the CI pipeline for this project. Development is started by getting work from the trello board. Once the task is complete, the code is pushed on to Github which triggers a a webhook. Jenkins then automates the tests and shows the coverage report on the console, which can then be seen by the developer to work on any failed tests. After successful tests, the jenkins server then automatically runs a testing environment for any dynamic testing. 
