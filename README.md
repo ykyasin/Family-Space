@@ -73,11 +73,21 @@ Then the name now appears in the dropdown menu:
 ![login_page_3](https://user-images.githubusercontent.com/73299366/103596073-f8e9f100-4ef4-11eb-947f-4366b60756ce.JPG)
 
 ## Main page
-![main_page_1](https://user-images.githubusercontent.com/73299366/103596109-0e5f1b00-4ef5-11eb-9768-f057d31aadec.JPG)
+After logging in, you will be directed to the main page which will show all your posts and anyone elses. The first image below shows that you are logged in as Adnan, and you see a post by another user Yusuf. To make a post, you type in the "How you feeling?" field and click post.
 ![main_page_2](https://user-images.githubusercontent.com/73299366/103596110-1028de80-4ef5-11eb-9364-77730fc47304.JPG)
+
+The page will refresh and Adnan's post below Yusuf's. All posts made by you will have a delete button after it. 
 ![main_page_3](https://user-images.githubusercontent.com/73299366/103596113-11f2a200-4ef5-11eb-8670-4b0964cdcdb2.JPG)
+
+In this page you can also change the name on your account. Below shows the page after clicking the "Change account name" button, which generates a field for you to fill in.
 ![main_page_4](https://user-images.githubusercontent.com/73299366/103596117-1454fc00-4ef5-11eb-9196-f36b7e215bf7.JPG)
+
+After filling in and clicking the "Change" button, you will notice that the name in the main page has changed. This is because the name of the user has been updated in the database.
 ![main_page_5](https://user-images.githubusercontent.com/73299366/103596124-174fec80-4ef5-11eb-8903-b83cad2c6b49.JPG)
+
+Also, after clicking on the "Delete your account" button, you will be asked if you are sure. If yes, you will be redirected to the login page with your user having been deleted from the database
 ![main_page_6](https://user-images.githubusercontent.com/73299366/103596129-1919b000-4ef5-11eb-8000-cb3e5a50447b.JPG)
+
+The final thing to mention is the "Logout" button, this button simply redirects you back to the login page.
 
 
