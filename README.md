@@ -28,7 +28,9 @@ Originally, I wanted to add more complexity to the project by integrating a many
 ![First_erd](https://user-images.githubusercontent.com/73299366/103592952-54fc4780-4eec-11eb-9de1-604bd0230630.JPG)
 ![Second_erd](https://user-images.githubusercontent.com/73299366/103592969-5fb6dc80-4eec-11eb-8e33-332d4f90279d.JPG)
 
-
+<p align="center">
+  <img width="460" height="300" src="https://user-images.githubusercontent.com/73299366/103592952-54fc4780-4eec-11eb-9de1-604bd0230630.JPG">
+</p>
 ### Trello Board
 
 The trello board I created using trello.com is shown below. It shows all the user stories, backlog and all tasks either in in-progress , testing or complete.
