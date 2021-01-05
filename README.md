@@ -5,7 +5,7 @@
    * [Objective](#objective)
    * [My Project Proposol ](#my-project-proposol )
 * [Software Architecture ](#software-architecture )
-   * [Database Structure](#database-structure)
+   * [Project Tracking ](#project-tracking)
    * [Entity Relationship Diagram](#entity-relationship-diagram)
    * [Continuous Integration Pipeline](#continuous-integration-pipeline)
    * [Risk Assessment](#risk-assessment)
