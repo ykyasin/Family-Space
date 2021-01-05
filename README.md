@@ -60,7 +60,7 @@ Final risk assessment
 ## CRUD functionality 
 This section will discuss the basic workings of the website. For the login functionality, I have decided to simply use a dropdown menu with user names found in the database and a login button. 
 
-## Login page
+### Login page
 
 The two below images show that when a name is added in the name field and the "Add new member" button is clicked, the name will be show in the drop down menu. The way this worked is that once the button is clicked, a new user is generated in the database with the name written in the field, which will subsequently be shown in the dropdown menu due to the name now being in the database.
 
@@ -72,7 +72,7 @@ Then the name now appears in the dropdown menu:
 
 ![login_page_3](https://user-images.githubusercontent.com/73299366/103596073-f8e9f100-4ef4-11eb-947f-4366b60756ce.JPG)
 
-## Main page
+### Main page
 After logging in, you will be directed to the main page which will show all your posts and anyone elses. The first image below shows that you are logged in as Adnan, and you see a post by another user Yusuf. To make a post, you type in the "How you feeling?" field and click post.
 ![main_page_2](https://user-images.githubusercontent.com/73299366/103596110-1028de80-4ef5-11eb-9364-77730fc47304.JPG)
 
@@ -89,5 +89,12 @@ Also, after clicking on the "Delete your account" button, you will be asked if y
 ![main_page_6](https://user-images.githubusercontent.com/73299366/103596129-1919b000-4ef5-11eb-8000-cb3e5a50447b.JPG)
 
 The final thing to mention is the "Logout" button, this button simply redirects you back to the login page.
+
+## CI Server
+![jenkins_project](https://user-images.githubusercontent.com/73299366/103598019-862f4480-4ef9-11eb-855f-4aaaaefe3140.JPG)
+![Bash_script](https://user-images.githubusercontent.com/73299366/103598040-90514300-4ef9-11eb-868a-d81a9179d9c0.JPG)
+![Coverage](https://user-images.githubusercontent.com/73299366/103598058-96472400-4ef9-11eb-8563-0d525e591cf5.JPG)
+![Coverage_html](https://user-images.githubusercontent.com/73299366/103598061-9810e780-4ef9-11eb-97d2-c48969b86672.JPG)
+
 
 
