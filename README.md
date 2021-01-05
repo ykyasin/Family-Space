@@ -22,7 +22,7 @@
 
 
 ## Introduction 
-### Objective
+### Objective 
 
 This is an individual project in order to meet the SFIA requirements. The objective of this project is as follows: 
 
