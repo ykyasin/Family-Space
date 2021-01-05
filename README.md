@@ -14,6 +14,9 @@
    * [Main Page](#main-page)
 * [CI Server](#ci-server)
 * [Testing](#testing)
+* [Future Improvements](#future-improvements)
+* [Author](#author)
+
 
 ## Introduction 
 ### Objective
@@ -116,6 +119,10 @@ The Bash script used to allow for the testing and deployment of the app is show 
 ## Testing
 ![Coverage](https://user-images.githubusercontent.com/73299366/103598058-96472400-4ef9-11eb-8563-0d525e591cf5.JPG)
 ![Coverage_html](https://user-images.githubusercontent.com/73299366/103598061-9810e780-4ef9-11eb-97d2-c48969b86672.JPG)
+
+## Future Improvements
+
+## Author
 
 
 
