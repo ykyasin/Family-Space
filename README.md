@@ -35,7 +35,7 @@ The concepts gained from this project is as follows:
 * Basic Linux
 * Python Web Development using the Flask framework
 * Continuous integration with Jenkins
-* Understanding and utilising Cloud concepts using GCP
+* Understanding and utilising Cloud concepts using GCP 
 
 
 ### My Project Proposol 
