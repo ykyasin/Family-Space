@@ -76,7 +76,7 @@ Final risk assessment
 ![Second_Risk](https://user-images.githubusercontent.com/73299366/103595659-e15e3880-4ef3-11eb-99be-5fcea22be88c.JPG)
 
 ## CRUD Functionality 
-This section will discuss the basic workings of the website. For the login functionality, I have decided to simply use a dropdown menu with user names found in the database and a login button. 
+This section will discuss the basic workings of the website and the front-end design. For the login functionality, I have decided to simply use a dropdown menu with user names found in the database and a login button. 
 
 ### Login Page
 
