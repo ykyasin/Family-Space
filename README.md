@@ -128,11 +128,20 @@ To perform integration testing, selenium was used. Selenium allowed me to simula
 ![Coverage](https://user-images.githubusercontent.com/73299366/103598058-96472400-4ef9-11eb-8563-0d525e591cf5.JPG)
 
 The above image shows the coverage report for my application. As shown, I have a coverage percentage of 77%, which is not ideal. This is because I was unable to test specific lines due to how the functiions were made. However, it should be noted that with dynamic testing I found that everything worked as they should and that the coverage is not 100% simply because I had trouble coding the tests for the specific lines shown in the missing section in the image. Beyond that, the tests that were done for both unit and integration testing have all passed.
+
+The below image shows the same information as the one above, but as a html page.
 ![Coverage_html](https://user-images.githubusercontent.com/73299366/103598061-9810e780-4ef9-11eb-97d2-c48969b86672.JPG)
 
 ## Future Improvements
+There are many improvements that can be made to the application. However, to name a few: 
+* To implement my original ERD approach by including a comments table so that users an comment under posts
+* Improve test coverage by implementing better code practices 
+* By including more user details such as having emails as well as passwords
+* To implement a more traditional login approach 
+* To improve the front-end design of the website
+
 
 ## Author
-
+Yusuf Yasin
 
 
