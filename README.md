@@ -65,13 +65,17 @@ The ERD shown below is the one I decided to move on with, which is a simple one 
 ![Second_erd](https://user-images.githubusercontent.com/73299366/103592969-5fb6dc80-4eec-11eb-8e33-332d4f90279d.JPG)
 
 ### CI Pipeline
-
 ![Ci_Pipeline](https://user-images.githubusercontent.com/73299366/103595546-a0662400-4ef3-11eb-9a26-09ad8a2478ef.JPG)
 
+The image above shows the CI pipeline for this project. Development is started by getting work from the trello board. Once the task is complete, the code is pushed on to Github which triggers a a webhook. Jenkins then automates the tests and shows the coverage report on the console, which can then be seen by the developer to work on any failed tests. After successful tests, the jenkins server then automatically runs a testing environment for any dynamic testing. 
+
 ### Risk Assessment
-Original risk assessment
+The first image below is the original risk assessment made before any serious work on the application had began. The second one shows the final risk assessment, which has a few more entries which I realised whilst working on the project.
+
+Original: 
 ![First_Risk](https://user-images.githubusercontent.com/73299366/103595638-d7d4d080-4ef3-11eb-8cb9-75a797be5f0a.JPG)
 
+Final:
 Final risk assessment
 ![Second_Risk](https://user-images.githubusercontent.com/73299366/103595659-e15e3880-4ef3-11eb-99be-5fcea22be88c.JPG)
 
